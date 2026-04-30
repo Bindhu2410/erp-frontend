@@ -1,0 +1,230 @@
+{
+  "item": {
+    "basicInfo": [
+      {
+        "name": "id",
+        "label": "SKU",
+        "type": "text",
+        "required": true,
+        "placeholder": "Enter SKU",
+        "gridColumn": 1
+      },
+      {
+        "name": "name",
+        "label": "Item Name",
+        "type": "text",
+        "required": true,
+        "placeholder": "Enter item name",
+        "gridColumn": 1
+      },
+      {
+        "name": "baseUom",
+        "label": "Base UOM",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "value": "", "label": "Select Base UOM" },
+          { "value": "EA", "label": "Each (EA)" },
+          { "value": "PCS", "label": "Piece (PCS)" },
+          { "value": "KG", "label": "Kilogram (KG)" },
+          { "value": "M", "label": "Meter (M)" },
+          { "value": "L", "label": "Liter (L)" },
+          { "value": "SHT", "label": "Sheet (SHT)" },
+          { "value": "RL", "label": "Roll (RL)" },
+          { "value": "SET", "label": "Set (SET)" },
+          { "value": "BOX", "label": "Box (BOX)" },
+          { "value": "BTL", "label": "Bottle (BTL)" }
+        ],
+        "gridColumn": 2
+      },
+      {
+        "name": "itemType",
+        "label": "Item Type",
+        "type": "select",
+        "required": false,
+        "options": [
+          { "value": "", "label": "Select Item Type" },
+          { "value": "raw", "label": "Raw Material" },
+          { "value": "wip", "label": "Work In Progress (WIP)" },
+          { "value": "finished", "label": "Finished Good" },
+          { "value": "traded", "label": "Traded Good" },
+          { "value": "consumable", "label": "Consumable" },
+          { "value": "spare", "label": "Spare Part" }
+        ],
+        "gridColumn": 2
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Enter description",
+        "rows": 2,
+        "gridColumn": "span 2"
+      }
+    ],
+    "trackingInfo": [
+      {
+        "name": "trackingMethod",
+        "label": "Tracking Method",
+        "type": "radio",
+        "options": [
+          { "value": "none", "label": "None" },
+          { "value": "lot", "label": "Lot Tracked" },
+          { "value": "serial", "label": "Serial Tracked" }
+        ],
+        "defaultValue": "none",
+        "gridColumn": 1
+      },
+      {
+        "name": "flags",
+        "label": "Flags",
+        "type": "checkboxGroup",
+        "options": [
+          { "name": "demoEligible", "label": "Eligible for Demo" },
+          { "name": "activeItem", "label": "Active" }
+        ],
+        "gridColumn": 2
+      }
+    ],
+    "pricingInfo": [
+      {
+        "name": "defaultSalePrice",
+        "label": "Default Sale Price",
+        "type": "number",
+        "required": true,
+        "placeholder": "0.00",
+        "prefix": "₹",
+        "step": "0.01",
+        "helpText": "Base selling price if no price list applies",
+        "gridColumn": 1
+      },
+      {
+        "name": "defaultPurchasePrice",
+        "label": "Default Purchase Price",
+        "type": "number",
+        "required": false,
+        "placeholder": "0.00",
+        "prefix": "₹",
+        "step": "0.01",
+        "gridColumn": 2
+      },
+      {
+        "name": "targetProfitMargin",
+        "label": "Target Profit Margin (%)",
+        "type": "number",
+        "required": false,
+        "placeholder": "0.00",
+        "suffix": "%",
+        "step": "0.01",
+        "min": 0,
+        "max": 100,
+        "helpText": "Desired profit margin percentage for pricing calculations",
+        "gridColumn": 1
+      },
+      {
+        "name": "calculatedLandedCost",
+        "label": "Calculated Landed Cost",
+        "type": "number",
+        "required": false,
+        "placeholder": "0.00",
+        "prefix": "₹",
+        "step": "0.01",
+        "readonly": true,
+        "helpText": "Total cost including all additional cost components",
+        "gridColumn": 2
+      }
+    ]
+  },
+  "costComponent": {
+    "fields": [
+      {
+        "name": "category",
+        "label": "Cost Category",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "value": "", "label": "Select Cost Category" },
+          { "value": "1", "label": "Import Duty" },
+          { "value": "2", "label": "Shipping & Handling" },
+          { "value": "3", "label": "Warehouse Overhead" },
+          { "value": "4", "label": "Marketing Allocation" },
+          { "value": "5", "label": "Customs Clearance" },
+          { "value": "6", "label": "Insurance" },
+          { "value": "7", "label": "Other" }
+        ]
+      },
+      {
+        "name": "calculationMethod",
+        "label": "Calculation Method",
+        "type": "select",
+        "required": true,
+        "options": [
+          { "value": "", "label": "Select Method" },
+          { "value": "fixed", "label": "Fixed Per Unit" },
+          { "value": "percentage", "label": "Percentage of Purchase Price" },
+          { "value": "shipment", "label": "Fixed Per Shipment" }
+        ]
+      },
+      {
+        "name": "value",
+        "label": "Cost Value",
+        "type": "number",
+        "required": true,
+        "placeholder": "0.00",
+        "prefix": "₹",
+        "step": "0.01",
+        "min": 0,
+        "dynamicHelpText": {
+          "fixed": "Enter the fixed amount per unit",
+          "percentage": "Enter percentage value (e.g., 10 for 10%)",
+          "shipment": "Enter fixed cost per shipment"
+        }
+      },
+      {
+        "name": "effectiveDate",
+        "label": "Effective Date",
+        "type": "date",
+        "required": true,
+        "defaultValue": "today"
+      },
+      {
+        "name": "endDate",
+        "label": "End Date",
+        "type": "date",
+        "required": false,
+        "helpText": "Leave blank if no end date"
+      },
+      {
+        "name": "notes",
+        "label": "Notes",
+        "type": "textarea",
+        "required": false,
+        "placeholder": "Enter notes",
+        "rows": 2
+      }
+    ]
+  },
+  "filterOptions": {
+    "itemType": [
+      { "value": "", "label": "All Types" },
+      { "value": "raw", "label": "Raw Materials" },
+      { "value": "wip", "label": "WIP" },
+      { "value": "finished", "label": "Finished Goods" },
+      { "value": "traded", "label": "Traded Goods" },
+      { "value": "consumable", "label": "Consumables" },
+      { "value": "spare", "label": "Spare Parts" }
+    ],
+    "trackingMethod": [
+      { "value": "", "label": "All Methods" },
+      { "value": "none", "label": "None" },
+      { "value": "lot", "label": "Lot Tracked" },
+      { "value": "serial", "label": "Serial Tracked" }
+    ],
+    "status": [
+      { "value": "active", "label": "Active", "default": true },
+      { "value": "inactive", "label": "Inactive" },
+      { "value": "", "label": "All" }
+    ]
+  }
+}

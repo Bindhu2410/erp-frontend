@@ -1,0 +1,101 @@
+{
+  "items": [
+    {
+      "id": "RM001",
+      "name": "Aluminum Sheet 2mm",
+      "baseUom": "SHT",
+      "itemType": "Raw Material",
+      "trackingMethod": "lot",
+      "demoEligible": false,
+      "status": "active",
+      "defaultSalePrice": 550,
+      "defaultPurchasePrice": 380,
+      "targetProfitMargin": 30,
+      "calculatedLandedCost": 420,
+      "costComponents": [
+        {
+          "id": "CC001",
+          "category": "2",
+          "calculationMethod": "fixed",
+          "value": 25,
+          "effectiveDate": "2023-01-01"
+        },
+        {
+          "id": "CC002",
+          "category": "3",
+          "calculationMethod": "percentage",
+          "value": 5,
+          "effectiveDate": "2023-01-01"
+        }
+      ]
+    },
+    {
+      "id": "FG003",
+      "name": "Circuit Board Assembly",
+      "baseUom": "EA",
+      "itemType": "Finished Good",
+      "trackingMethod": "serial",
+      "demoEligible": true,
+      "status": "active",
+      "defaultSalePrice": 2100,
+      "defaultPurchasePrice": 0,
+      "targetProfitMargin": 40,
+      "calculatedLandedCost": 1250
+    },
+    {
+      "id": "SP010",
+      "name": "Replacement Power Supply",
+      "baseUom": "EA",
+      "itemType": "Spare Part",
+      "trackingMethod": "serial",
+      "demoEligible": true,
+      "status": "active",
+      "defaultSalePrice": 850,
+      "defaultPurchasePrice": 620,
+      "targetProfitMargin": 35,
+      "calculatedLandedCost": 680
+    },
+    {
+      "id": "WIP005",
+      "name": "Partially Assembled Housing",
+      "baseUom": "EA",
+      "itemType": "WIP",
+      "trackingMethod": "lot",
+      "demoEligible": false,
+      "status": "active",
+      "defaultSalePrice": 0,
+      "defaultPurchasePrice": 0,
+      "calculatedLandedCost": 320
+    },
+    {
+      "id": "RM012",
+      "name": "Copper Wire 18AWG",
+      "baseUom": "M",
+      "itemType": "Raw Material",
+      "trackingMethod": "lot",
+      "demoEligible": false,
+      "status": "inactive",
+      "defaultSalePrice": 45,
+      "defaultPurchasePrice": 28,
+      "targetProfitMargin": 40,
+      "calculatedLandedCost": 32
+    }
+  ],
+  "categories": [
+    { "id": "1", "name": "Import Duty" },
+    { "id": "2", "name": "Shipping & Handling" },
+    { "id": "3", "name": "Warehouse Overhead" },
+    { "id": "4", "name": "Marketing Allocation" },
+    { "id": "5", "name": "Customs Clearance" },
+    { "id": "6", "name": "Insurance" },
+    { "id": "7", "name": "Other" }
+  ],
+  "itemTypes": [
+    { "value": "raw", "label": "Raw Material" },
+    { "value": "wip", "label": "Work In Progress (WIP)" },
+    { "value": "finished", "label": "Finished Good" },
+    { "value": "traded", "label": "Traded Good" },
+    { "value": "consumable", "label": "Consumable" },
+    { "value": "spare", "label": "Spare Part" }
+  ]
+}

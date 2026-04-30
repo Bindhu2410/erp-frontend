@@ -1,0 +1,49 @@
+{
+  "headerFields": [
+    {
+      "name": "purchase_requisition_id",
+      "label": "Purchase Requisition ID",
+      "type": "input",
+      "required": true,
+      "showOnlyInEdit": true
+    },
+    {
+      "name": "requesterName",
+      "label": "Requester Name",
+      "type": "input",
+      "required": true
+    },
+    {
+      "name": "deliveryDate",
+      "label": "Delivery Date",
+      "type": "input",
+      "inputType": "date",
+      "pattern": "\\d{4}-\\d{2}-\\d{2}"
+    },
+    {
+      "name": "budgetAmount",
+      "label": "Budget Amount",
+      "type": "input",
+      "inputType": "string"
+    },
+
+    {
+      "name": "vendorName",
+      "label": "vendor Name",
+      "type": "dropdown",
+      "URL": "Supplier"
+    },
+    {
+      "name": "status",
+      "label": "Status",
+      "type": "dropdown",
+      "options": ["Pending", "Approved", "Rejected"]
+    },
+    {
+      "name": "description",
+      "label": "Description",
+      "type": "textarea",
+      "required": true
+    }
+  ]
+}

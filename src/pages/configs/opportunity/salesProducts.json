@@ -1,0 +1,59 @@
+{
+  "title": "Products Deatils",
+  "fields": [
+    {
+      "id": "itemName",
+      "fieldName": "Product Name",
+      "type": "dropdown",
+      "URL": "ProductDropdown/product-list",
+      "required": true
+    },
+    {
+      "id": "category",
+      "fieldName": "Category",
+      "type": "text",
+      "required": false,
+      "disabled": true
+    },
+    {
+      "id": "itemCode",
+      "fieldName": "Product Code",
+      "type": "text",
+      "required": true,
+      "disabled":true
+    },
+    {
+      "id": "productAccessories",
+      "fieldName": "Product Accessories",
+      "type": "dropdown",
+      "required": false
+    },
+    {
+      "id": "otherAccessories",
+      "fieldName": "Other Accessories",
+      "type": "dropdown",
+         "URL":"ProductDropdown/product-list",
+      "required": false
+    },
+    {
+      "id": "unitPrice",
+      "fieldName": "Unit Price",
+      "type": "number",
+      "required": true,
+      "disabled": true
+    },
+    {
+      "id": "qty",
+      "fieldName": "Quantity",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "amount",
+      "fieldName": "Amount",
+      "type": "number",
+      "required": true,
+      "disabled": true
+    }
+  ]
+}

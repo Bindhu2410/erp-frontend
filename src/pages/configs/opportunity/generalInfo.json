@@ -1,0 +1,103 @@
+{
+  "title": "General Information",
+  "fields": [
+    {
+      "fieldName": "Opportunity For",
+      "id": "opportunityFor",
+      "type": "dropdown",
+      "options": ["Lead", "Customer"],
+      "required": true
+    },
+
+    {
+      "fieldName": "Lead ID",
+      "id": "leadId",
+      "type": "dropdown",
+      "URL": "api/SalesLead",
+      "parentFldForVisible": "opportunityFor",
+      "parentFldValForVisible": "Lead",
+      "required": true
+    },
+    {
+      "fieldName": "Hospital/Clinic/Individual",
+      "id": "customerName",
+      "type": "dropdown",
+      "URL": "api/SalesLead",
+      "parentFldForVisible": "opportunityFor",
+      "parentFldValForVisible": "Lead",
+      "required": true
+    },
+    {
+      "fieldName": "Customer ID",
+      "id": "customerId",
+      "type": "searchSelect",
+      "URL": "get-customer-id",
+      "parentFldForVisible": "opportunityFor",
+      "parentFldValForVisible": "Customer",
+      "required": true
+    },
+    {
+      "fieldName": "Customer Name",
+      "id": "customerName",
+      "type": "text",
+      "parentFldForVisible": "opportunityFor",
+      "parentFldValForVisible": "Customer",
+      "required": true
+    },
+    {
+      "fieldName": "Status",
+      "id": "status",
+      "type": "text",
+      "defaultValue": "New Opportunity",
+      "defaultOnFormLoad": "New Opportunity",
+      "disabled": true
+    },
+    {
+      "fieldName": "Sales Rep",
+      "id": "salesRepresentative",
+      "type": "text",
+      "disabled": true,
+      "autoFill": {
+        "when": [
+          "Lead ID",
+          "Hospital/Clinic/Individual",
+          "Customer ID",
+          "Customer"
+        ],
+        "options": ["Sasi", "Ram", "Kumar", "Rajesh"]
+      }
+    },
+
+    {
+      "fieldName": "Contact Name",
+      "id": "contactName",
+      "URL": "get-contact-name-by-lead-id?leadId=LD003",
+      "type": "text",
+      "required": false
+    },
+    {
+      "fieldName": "Contact Mobile No",
+      "id": "contactMobileNo",
+      "type": "text",
+      "autoFill": {
+        "when": [
+          "Lead ID",
+          "Hospital/Clinic/Individual",
+          "Customer ID",
+          "Customer"
+        ],
+        "visibilityCondition": "In Contacts Table When Select Priority 1"
+      }
+    },
+    {
+      "fieldName": "Expected Completion",
+      "id": "expectedCompletion",
+      "type": "date"
+    },
+    {
+      "fieldName": "Comments",
+      "id": "comments",
+      "type": "textarea"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+.location-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.card-title {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+}
+
+.dropdown-toggle.btn-light {
+    background: none;
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.dropdown-toggle.btn-light:hover,
+.dropdown-toggle.btn-light:focus {
+    background: #f8f9fa;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.bg-light {
+    background-color: #f8f9fa !important;
+}
+
+.card-subtitle {
+    color: #6c757d;
+    font-size: 0.875rem;
+    font-weight: 500;
+}

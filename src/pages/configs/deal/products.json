@@ -1,0 +1,39 @@
+{
+  "title": "Products Deatils",
+  "fields": [
+    {
+      "id": "itemName",
+      "fieldName": "Product Name",
+      "type": "dropdown",
+      "URL":"ProductDropdown/product-list",
+      "required": true
+
+    },
+    {
+      "id": "itemCode",
+      "fieldName": "Product Type",
+      "type": "text",
+      "required": true,
+      "disabled":true
+    },
+    {
+      "id": "unitPrice",
+      "fieldName": "Unit Price",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "quantity",
+      "fieldName": "Quantity",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "amount",
+      "fieldName": "Amount",
+      "type": "number",
+      "required": true,
+      "disabled": true
+    }
+  ]
+}

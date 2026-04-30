@@ -1,0 +1,64 @@
+{
+    "title": "Product Details",
+    "fields": [
+        {
+          "fieldName": "Make",
+          "id": "makeName",
+          "type": "select",
+          "URL":"ProductDropdown/options",
+          "options": [
+          ],
+          "required": true
+        },
+      {
+        "fieldName": "Model",
+        "id": "modelName",
+        "type": "select",
+        "options": [],
+        "required": true
+      },
+      {
+        "fieldName": "Category",
+        "id": "categoryName",
+        "type": "select",
+        "options": [],
+        "required": true
+      },
+      {
+        "fieldName": "Product Name",
+        "id": "productName",
+        "type": "select",
+        "options": [],
+        "required": true
+      },
+      {
+        "fieldName": "Product Code",
+        "id": "productId",
+        "type": "select",
+        "options": [
+          ],
+        "required": true
+      },{
+        "fieldName": "UOM",
+        "id": "uom",
+        "type": "text",
+        "required": true
+      },{
+        "fieldName": "Unite Price",
+        "id": "unitPrice",
+        "type": "number",
+        "required": true
+      },
+      {
+        "fieldName": "Quantity",
+        "id": "quantity",
+        "type": "number",
+        "required": true
+      },
+      {
+        "fieldName": "Amount",
+        "id": "amount",
+        "type": "number",
+        "required": true
+
+      }]}

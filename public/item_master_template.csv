@@ -1,0 +1,2 @@
+Item Name,Item Code,Product,Brand,Category Id,Group Name,UOM Id,Unit Price,Cat No,HSN,Tax Percentage,Inventory Method Id,Valuation Method Id,Image URL,Is Active
+Sample Item,ITEM001,Sample Product,Sample Brand,1,Main Group 1,1,100,CAT001,HSN001,18,1,1,http://example.com/image.jpg,true

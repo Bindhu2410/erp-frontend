@@ -1,0 +1,116 @@
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0.5rem 1rem;
+    min-height: 60px;
+    background: linear-gradient(to right, #ffffff, #f8f9fa);
+}
+
+.navbar-brand {
+    color: #2c3e50 !important;
+    font-weight: 500;
+}
+
+.navbar-brand img {
+    filter: brightness(0) saturate(100%) invert(31%) sepia(15%) saturate(934%) hue-rotate(167deg) brightness(97%) contrast(88%);
+}
+
+.nav-link {
+    color: #212529 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.navbar .dropdown-toggle:hover {
+    color: #0d6efd !important;
+}
+
+.nav-link.active,
+.navbar .dropdown-toggle.show {
+    color: #0d6efd !important;
+}
+
+.navbar .dropdown-toggle {
+    color: #212529 !important;
+    font-weight: 500;
+}
+
+.navbar .dropdown-toggle::after {
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+.dropdown-menu {
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 0.5rem 0;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    color: #212529;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #0d6efd;
+}
+
+.dropdown-item.active {
+    background-color: #e9ecef;
+    color: #0d6efd;
+    font-weight: 500;
+}
+
+.admin-user {
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.erp-header {
+    border-bottom: 1px solid #e9ecef;
+    padding: 0.5rem 0;
+    background: #fff;
+}
+
+.brand-text {
+    color: #212529;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0 !important;
+    }
+    
+    .navbar .dropdown-toggle {
+        padding: 0.5rem 0;
+    }
+    
+    .dropdown-menu {
+        border: none;
+        box-shadow: none;
+        padding-left: 1rem;
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 0;
+    }
+}

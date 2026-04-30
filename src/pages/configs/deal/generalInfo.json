@@ -1,0 +1,101 @@
+{
+        "title": "General Information",
+        "fields": [
+          {
+            "fieldName": "Deal Name",
+            "id": "dealName",
+            "type": "text",
+            "required": true
+          },
+        
+          {
+            "fieldName": "Order Acceptance",
+            "id": "orderAcceptance",
+            "type": "date",
+            "required": true
+          },
+          {
+            "fieldName": "Purchase order date",
+            "id": "purchaseOrderdate",
+            "type": "date",
+            "required": true
+          },
+          {
+            "fieldName": "Status",
+            "id": "status",
+            "type": "dropdown",
+            "options": [
+              "Qualification", 
+              "Needs Analysis", 
+              "Value Proposition", 
+              "Identify Decision Makers", 
+              "Proposal/Price Quote", 
+              "Negotiation/Review",
+              "Purchase Order","Order Acceptance",
+              "Closed Won", 
+              "Closed Lost", 
+              "Closed Lost to Competition"
+            ],
+            "required": true
+          },
+          {
+            "fieldName": "Amount",
+            "id": "amount",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "fieldName": "Expected Revenue",
+            "id": "expectedRevenue",
+            "type": "text",
+            "required": true
+          },
+          {
+              "fieldName": "Hospital/Clinic/Individual", 
+              "id": "customerName", 
+              "type": "dropdown",
+              "options": ["Clinic", "Hospital", "Individual"],
+              "required": true
+            },
+          {
+              "fieldName": "Opportunity ID",
+              "id": "opportunityId",
+              "type": "dropdown",
+              "URL": "api/SalesOpportunity",
+              "required": false
+            },
+         
+          {
+            "fieldName": "Closing Date",
+            "id": "closingDate",
+            "type": "date",
+            "required": true
+          },
+          {
+            "fieldName": "Sales Rep",
+            "id": "salesRep",
+            "type": "dropdown",
+            "options":[  "T1" ,
+            "T2" ,
+              "T3" ,
+          "T4" ,
+              "Admin" ,
+            "Marketing" 
+          ],
+            "required": true
+          },
+          
+          {
+            "fieldName": "Purchase order",
+            "id": "purchaseOrder",
+            "type": "file",
+            "required": false
+          },
+          {
+            "fieldName": "Comment",
+            "id": "comment",
+            "type": "textarea",
+            "required": false
+          }
+        ]
+      }

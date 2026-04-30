@@ -1,0 +1,24 @@
+  {
+    "title": "Interested Products",
+    "fields": [
+    {
+      "id": "itemName",
+      "fieldName": "Product Name",
+      "type": "dropdown",
+      "URL":"ItemDropdown/item-list",
+      "required": true
+    },
+    {
+      "id": "itemCode",
+      "fieldName": "Product Type",
+      "type": "text",
+      "required": true,
+      "disabled":true
+    },
+    {
+      "id": "qty",
+      "fieldName": "Quantity",
+      "type": "number",
+      "required": true
+    }]
+  }

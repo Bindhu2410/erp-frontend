@@ -1,0 +1,123 @@
+{
+  "title": "Pre-Lead Information",
+  "fields": [
+    {
+      "id": "preLeadNumber",
+      "label": "Pre-Lead Number",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-generated"
+    },
+    {
+      "id": "source",
+      "label": "Lead Source",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "website", "label": "Website" },
+        { "value": "referral", "label": "Referral" },
+        { "value": "socialMedia", "label": "Social Media" },
+        { "value": "tradeShow", "label": "Trade Show" },
+        { "value": "directMail", "label": "Direct Mail" }
+      ]
+    },
+    {
+      "id": "companyName",
+      "label": "Company Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter company name"
+    },
+    {
+      "id": "industry",
+      "label": "Industry",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "healthcare", "label": "Healthcare" },
+        { "value": "technology", "label": "Technology" },
+        { "value": "manufacturing", "label": "Manufacturing" },
+        { "value": "retail", "label": "Retail" }
+      ]
+    },
+    {
+      "id": "contactPerson",
+      "label": "Contact Person",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter contact person name"
+    },
+    {
+      "id": "designation",
+      "label": "Designation",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter designation"
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true,
+      "placeholder": "Enter email address"
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter phone number"
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter location"
+    },
+    {
+      "id": "territory",
+      "label": "Territory",
+      "type": "select",
+      "required": true,
+      "options": "territories"
+    },
+    {
+      "id": "initialInterest",
+      "label": "Initial Interest",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "high", "label": "High" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "low", "label": "Low" }
+      ]
+    },
+    {
+      "id": "productInterest",
+      "label": "Product Interest",
+      "type": "multiselect",
+      "required": true,
+      "options": "products"
+    },
+    {
+      "id": "potentialValue",
+      "label": "Potential Value",
+      "type": "number",
+      "placeholder": "Enter potential value"
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "type": "textarea",
+      "placeholder": "Enter additional notes"
+    },
+    {
+      "id": "followUpDate",
+      "label": "Follow-up Date",
+      "type": "date",
+      "required": true
+    }
+  ]
+}

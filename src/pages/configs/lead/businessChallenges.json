@@ -1,0 +1,35 @@
+{
+  "title": "Business Challenges",
+  "fields": [
+    {
+      "title": "Facing Challenges",
+      "fields": [
+        {
+          "fieldName": "Challenges",
+          "id": "challenges",
+          "type": "textarea",
+          "required": true
+        },
+        {
+          "fieldName": "Solution",
+          "id": "solution",
+          "type": "textarea",
+          "required": true
+        }
+      ]
+    },
+    {
+      "title": "Solution Products",
+      "fields": [
+        {
+          "fieldName": "Product Name",
+          "id": "solutionProducts",
+          "type": "multiselect",
+          "URL": "ProductDropdown/options",
+          "options": [""],
+          "required": true
+        }
+      ]
+    }
+  ]
+}

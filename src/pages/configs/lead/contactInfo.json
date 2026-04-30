@@ -1,0 +1,171 @@
+{
+  "title": "Contact Details",
+  "fields": [
+    {
+      "fieldName": "Contact Name",
+      "id": "contactName",
+      "type": "text",
+      "name": "Name",
+      "required": true
+    },
+    {
+      "fieldName": "Own Clinic",
+      "id": "ownClinic",
+      "type": "select",
+      "options": ["Yes", "No"],
+      "required": false
+    },
+    {
+      "fieldName": "Clinic Visiting Hours",
+      "id": "clinicVisitingHours",
+      "type": "multiselect",
+      "options": [
+        "07:00 AM - 08:00 AM",
+        "08:00 AM - 09:00 AM",
+        "09:00 AM - 10:00 AM",
+        "10:00 AM - 11:00 AM",
+        "11:00 AM - 12:00 PM",
+        "12:00 PM - 01:00 PM",
+        "01:00 PM - 02:00 PM",
+        "02:00 PM - 03:00 PM",
+        "03:00 PM - 04:00 PM",
+        "04:00 PM - 05:00 PM",
+        "05:00 PM - 06:00 PM",
+        "06:00 PM - 07:00 PM",
+        "07:00 PM - 08:00 PM",
+        "08:00 PM - 09:00 PM"
+      ],
+      "required": true
+    },
+    {
+      "fieldName": "Job Title",
+      "id": "jobTitle",
+      "type": "select",
+      "options": [
+        "Doctor",
+        "Nurse",
+        "Pharmacist",
+        "Lab Technician",
+        "Radiologist",
+        "Physiotherapist",
+        "Surgeon",
+        "Medical Assistant",
+        "Receptionist",
+        "Medical Coder",
+        "Paramedic",
+        "Healthcare Administrator"
+      ],
+      "required": false
+    },
+    {
+      "fieldName": "Dept.Name",
+      "id": "departmentName",
+      "type": "select",
+      "options": [
+        "Medical Department",
+        "Inpatient Department",
+        "Outpatient Department",
+        "Nursing Departmernt",
+        "Pharmacy Department"
+      ],
+      "required": true
+    },
+    {
+      "fieldName": "Specialist",
+      "id": "specialist",
+      "type": "select",
+      "options": [
+        "General Practitioner",
+        "Family Physician",
+        "Pediatrician",
+        "Gynecologist",
+        "Cardiologist",
+        "Dermatologist",
+        "Surgeon",
+        "Orthopedic Surgeon",
+        "Neurologist",
+        "Psychiatrist",
+        "Radiologist",
+        "Anesthesiologist",
+        "Urologist",
+        "Nephrologist",
+        "Gastroenterologist",
+        "Oncologist",
+        "Endocrinologist",
+        "Pulmonologist",
+        "Otolaryngologist (ENT)",
+        "Ophthalmologist",
+        "Rheumatologist",
+        "Pathologist",
+        "Plastic Surgeon",
+        "Vascular Surgeon",
+        "Critical Care Specialist",
+        "Sports Medicine Specialist"
+      ],
+      "required": true
+    },
+    {
+      "fieldName": "Degree",
+      "id": "degree",
+      "type": "multiselect",
+      "options": [
+        "MBBS (Bachelor of Medicine, Bachelor of Surgery)",
+        "MD (Doctor of Medicine)",
+        "MS (Master of Surgery)",
+        "DM (Doctorate of Medicine)",
+        "MCh (Master of Chirurgiae)",
+        "DNB (Diplomate of National Board)",
+        "BDS (Bachelor of Dental Surgery)",
+        "MDS (Master of Dental Surgery)",
+        "BHMS (Bachelor of Homeopathic Medicine and Surgery)",
+        "BAMS (Bachelor of Ayurvedic Medicine and Surgery)",
+        "BSMS (Bachelor of Siddha Medicine and Surgery)",
+        "BPT (Bachelor of Physiotherapy)",
+        "MPH (Master of Public Health)",
+        "PhD (Doctor of Philosophy in Medicine)",
+        "Fellowship (Specialized Medical Training)"
+      ],
+      "required": true
+    },
+    {
+      "fieldName": "Email",
+      "id": "email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "fieldName": "Mobile Number",
+      "id": "mobileNo",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "fieldName": "LandLine No",
+      "id": "landLineNo",
+      "type": "tel",
+      "required": false
+    },
+    {
+      "fieldName": "Visiting hours",
+      "id": "visitingHours",
+      "type": "multiselect",
+      "options": [
+        "07:00 AM - 08:00 AM",
+        "08:00 AM - 09:00 AM",
+        "09:00 AM - 10:00 AM",
+        "10:00 AM - 11:00 AM",
+        "11:00 AM - 12:00 PM",
+        "12:00 PM - 01:00 PM",
+        "01:00 PM - 02:00 PM",
+        "02:00 PM - 03:00 PM",
+        "03:00 PM - 04:00 PM",
+        "04:00 PM - 05:00 PM",
+        "05:00 PM - 06:00 PM",
+        "06:00 PM - 07:00 PM",
+        "07:00 PM - 08:00 PM",
+        "08:00 PM - 09:00 PM"
+      ],
+      "required": true
+    }
+  ]
+}

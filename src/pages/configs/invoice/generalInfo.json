@@ -1,0 +1,120 @@
+{
+  "title": "Invoice Information",
+  "fields": [
+    {
+      "id": "invoiceNumber",
+      "label": "Invoice Number",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-generated"
+    },
+    {
+      "id": "salesOrderNumber",
+      "label": "Sales Order Number",
+      "type": "select",
+      "required": true,
+      "options": "salesOrderNumbers",
+      "placeholder": "Select Sales Order"
+    },
+    {
+      "id": "customerName",
+      "label": "Customer Name",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-filled from Sales Order"
+    },
+    {
+      "id": "customerGSTIN",
+      "label": "Customer GSTIN",
+      "type": "text",
+      "required": true,
+      "pattern": "^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$",
+      "placeholder": "Enter GSTIN Number"
+    },
+    {
+      "id": "invoiceDate",
+      "label": "Invoice Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "dueDate",
+      "label": "Due Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "billingAddress",
+      "label": "Billing Address",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Enter Billing Address"
+    },
+    {
+      "id": "shippingAddress",
+      "label": "Shipping Address",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Enter Shipping Address"
+    },
+    {
+      "id": "subTotal",
+      "label": "Sub Total",
+      "type": "number",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "taxAmount",
+      "label": "Tax Amount",
+      "type": "number",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "id": "totalAmount",
+      "label": "Total Amount",
+      "type": "number",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "USD", "label": "USD" },
+        { "value": "EUR", "label": "EUR" },
+        { "value": "GBP", "label": "GBP" },
+        { "value": "INR", "label": "INR" }
+      ]
+    },
+    {
+      "id": "paymentTerms",
+      "label": "Payment Terms",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "net15", "label": "Net 15" },
+        { "value": "net30", "label": "Net 30" },
+        { "value": "net45", "label": "Net 45" },
+        { "value": "net60", "label": "Net 60" }
+      ]
+    },
+    {
+      "id": "notes",
+      "label": "Notes",
+      "type": "textarea",
+      "placeholder": "Enter additional notes"
+    }
+  ]
+}

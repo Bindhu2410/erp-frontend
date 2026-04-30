@@ -1,0 +1,172 @@
+.tax-setup-container {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+}
+
+.tax-setup-container .card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tax-setup-container .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.tax-setup-container .form-label {
+    font-weight: 500;
+    color: var(--dark-gray);
+}
+
+.tax-setup-container .form-control,
+.tax-setup-container .form-select {
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    font-size: 0.95rem;
+}
+
+.tax-setup-container .form-control:focus,
+.tax-setup-container .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+    border-color: var(--secondary-color);
+}
+
+.tax-setup-container .btn-primary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.tax-setup-container .btn-primary:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+}
+
+.tax-setup-container .btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.tax-setup-container .btn-success:hover {
+    background-color: #27ae60;
+    border-color: #27ae60;
+}
+
+.tax-setup-container .btn-outline-secondary {
+    color: var(--dark-gray);
+    border-color: #ced4da;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.tax-setup-container .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+    color: var(--dark-gray);
+}
+
+.tax-setup-container .modal-content {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.tax-setup-container .modal-header {
+    border-bottom: 2px solid var(--light-gray);
+    padding: 1.5rem;
+}
+
+.tax-setup-container .modal-body {
+    padding: 1.5rem;
+}
+
+.tax-setup-container .modal-footer {
+    border-top: 2px solid var(--light-gray);
+    padding: 1.5rem;
+}
+
+.tax-setup-container .status-badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+    border-radius: 10px;
+}
+
+.tax-setup-container .table thead th {
+    background-color: var(--light-gray);
+    border-bottom: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+}
+
+.tax-setup-container .table tbody td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.tax-setup-container .table tbody tr {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.tax-setup-container .table tbody tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+}
+
+.tax-setup-container .table-actions .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.85rem;
+}
+
+.tax-setup-container .required-field::after {
+    content: " *";
+    color: var(--accent-color);
+}
+
+.tax-setup-container .search-box {
+    margin-bottom: 1.5rem;
+}
+
+.tax-setup-container .heading-with-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tax-setup-container .heading-with-button h2 {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.tax-setup-container .toast {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tax-setup-container .numeric-input {
+    text-align: right;
+}
+
+.tax-setup-container .page-header {
+    background: linear-gradient(135deg, #fff, #fff);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}

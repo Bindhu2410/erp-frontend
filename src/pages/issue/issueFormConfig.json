@@ -1,0 +1,96 @@
+
+{
+  "headerFields": [
+    {
+      "name": "locationId",
+      "label": "Location Id",
+      "type": "dropdown",
+      "options": [
+        { "label": "Store", "value": "STORE" },
+        { "label": "Asset", "value": "ASSET" },
+        { "label": "Books", "value": "BOOKS" },
+        { "label": "Demo", "value": "DEMO" },
+        { "label": "Non Moving", "value": "NON_MOVING" },
+        { "label": "Quality", "value": "QUALITY" },
+        { "label": "Sample", "value": "SAMPLE" },
+        { "label": "Service", "value": "SERVICE" }
+      ]
+    },
+    { "name": "docId", "label": "Doc. Id", "type": "text" },
+    { "name": "refNo", "label": "Ref. No.", "type": "text" },
+    { "name": "issTo", "label": "Iss To", "type": "dropdown", "options": [
+        { "label": "MAIN", "value": "MAIN" },
+        { "label": "BRANCH", "value": "BRANCH" }
+    ]},
+    {
+      "name": "customerName",
+      "label": "Party Name",
+      "type": "dropdown",
+      "URL": "Supplier"
+    },
+    { "name": "salesRepresentative", "label": "Sales Man", "type": "dropdown", "URL": "PresenterDropdown/salesRepresentativeDropdown" },
+    { "name": "goodsConsignFrom", "label": "Consign From", "type": "text" },
+    { "name": "bookingAddress", "label": "Booking Address", "type": "text" },
+    { "name": "bookingQty", "label": "Booking Qty", "type": "text" },
+    { "name": "bomName", "label": "BOM Name", "type": "dropdown", "URL": "BomDropdown/bom-list" },
+    {
+      "name": "demoFrom",
+      "label": "Demo From",
+      "type": "dropdown",
+      "options": [
+        { "label": "DEMO REQUEST", "value": "DEMO_REQUEST" },
+        { "label": "OTHERS", "value": "OTHERS" }
+      ]
+    },
+    { "name": "issueDate", "label": "Doc. Date", "type": "date" },
+    { "name": "refDate", "label": "Ref. Date", "type": "date" },
+    {
+      "name": "issueTo",
+      "label": "Issue TO",
+      "type": "dropdown",
+      "options": [
+        { "label": "DEMO PURPOSE", "value": "DEMO_PURPOSE" },
+        { "label": "TRIAL PURPOSE", "value": "TRIAL_PURPOSE" },
+        { "label": "REPLACEMENT", "value": "REPLACEMENT" },
+        { "label": "CONFERENCE", "value": "CONFERENCE" },
+        { "label": "AFTER SERVICE", "value": "AFTER_SERVICE" }
+      ]
+    },
+    { "name": "partyBranch", "label": "Party/Branch", "type": "dropdown", "URL": "Supplier" },
+    { "name": "status", "label": "Status", "type": "dropdown", "options": [
+        { "label": "ACTIVE", "value": "ACTIVE" },
+        { "label": "INACTIVE", "value": "INACTIVE" }
+    ]},
+    { "name": "goodsConsignTo", "label": "Goods Consign To", "type": "text" },
+    { "name": "deliveredBy", "label": "Delivered By", "type": "text" },
+    { "name": "appValue", "label": "App Value", "type": "number" },
+    { "name": "receivedOn", "label": "Received On", "type": "date" },
+    { "name": "demoReport", "label": "Demo Report", "type": "dropdown", "options": [
+        { "label": "YES", "value": "YES" },
+        { "label": "NO", "value": "NO" }
+    ]},
+    { "name": "demoRemarks", "label": "Demo Remarks", "type": "text" },
+    { "name": "generateInvoice", "label": "Generate Invoice Y/N", "type": "dropdown", "options": [
+        { "label": "YES", "value": "YES" },
+        { "label": "NO", "value": "NO" }
+    ]},
+    { "name": "billNo", "label": "Bill No", "type": "text" },
+    { "name": "billDate", "label": "Bill Date", "type": "date" },
+    { "name": "doctorName", "label": "Doctor Name", "type": "text" },
+    { "name": "billingDescription", "label": "Billing Description", "type": "dropdown", "options": [
+        { "label": "CONSULTATION", "value": "CONSULTATION" },
+        { "label": "SURGERY", "value": "SURGERY" },
+        { "label": "TREATMENT", "value": "TREATMENT" }
+    ]},
+    { "name": "billingAmount", "label": "Billing Amount", "type": "number" }
+  ],
+  "itemTableColumns": [
+    { "name": "make", "label": "Make", "type": "dropdown" },
+    { "name": "category", "label": "Category", "type": "dropdown" },
+    { "name": "product", "label": "Product", "type": "dropdown" },
+    { "name": "model", "label": "Model", "type": "dropdown" },
+    { "name": "item", "label": "Item", "type": "text" },
+    { "name": "equIns", "label": "Equ/Ins", "type": "text" },
+    { "name": "batchNo", "label": "Batch No", "type": "text" }
+  ]
+}

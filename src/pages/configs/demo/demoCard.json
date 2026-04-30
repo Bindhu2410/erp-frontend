@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Demo Requested",
+    "id": "demoRequested",
+    "value": 0,
+    "description": "Demo requests received",
+    "icon": "FaEnvelopeOpenText"
+  },
+  {
+    "title": "Demo Scheduled",
+    "id": "demoScheduled",
+    "value": 0,
+    "description": "Demos scheduled with prospects",
+    "icon": "FaCalendarAlt"
+  },
+  {
+    "title": "Demo Completed",
+    "id": "demoCompleted",
+    "value": 0,
+    "description": "Demos successfully delivered",
+    "icon": "FaCheckCircle"
+  },
+  {
+    "title": "Demo Cancelled",
+    "id": "demoCancelled",
+    "value": 0,
+    "description": "Demos that were cancelled or not conducted",
+    "icon": "FaTimesCircle"
+  }
+]

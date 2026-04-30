@@ -1,0 +1,47 @@
+{
+  "quotationNumber": "QUO-2025-07-0145",
+  "generatedDate": "2025-07-10",
+  "taxRate": 18,
+  "items": [
+    {
+      "itemCode": "ITEM-001",
+      "itemName": "Surgical Microscope Model X200",
+      "qty": 2,
+      "unitPrice": 45000,
+      "uom": "Units",
+      "delivery": "30 Days"
+    },
+    {
+      "itemCode": "ITEM-002",
+      "itemName": "LED Surgical Light Pro",
+      "qty": 3,
+      "unitPrice": 25000,
+      "uom": "Units",
+      "delivery": "21 Days"
+    },
+    {
+      "itemCode": "ITEM-003",
+      "itemName": "Patient Monitor Advanced",
+      "qty": 5,
+      "unitPrice": 18000,
+      "uom": "Units",
+      "delivery": "14 Days"
+    },
+    {
+      "itemCode": "ITEM-004",
+      "itemName": "Sterilization Equipment",
+      "qty": 1,
+      "unitPrice": 35000,
+      "uom": "Unit",
+      "delivery": "45 Days"
+    },
+    {
+      "itemCode": "ITEM-005",
+      "itemName": "Medical Cart Deluxe",
+      "qty": 4,
+      "unitPrice": 12500,
+      "uom": "Units",
+      "delivery": "10 Days"
+    }
+  ]
+}

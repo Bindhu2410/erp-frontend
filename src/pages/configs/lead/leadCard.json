@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Total Leads",
+    "field": "totalLeads",
+    "growthField": "totalLeadsGrowth",
+    "description": "Total number of leads.",
+    "descriptionColor": "{growthField >= 0 ? 'green' : 'red'}",
+    "icon": "FaUser",
+    "value": "{field}",
+    "displayFormat": "number"
+  },
+  {
+    "title": "New This Week",
+    "field": "newThisWeek",
+    "growthField": "newThisWeekGrowth",
+    "description": "Leads added this week.",
+    "descriptionColor": "{growthField >= 0 ? 'green' : 'red'}",
+    "icon": "FaCalendarAlt",
+    "value": "{field}",
+    "displayFormat": "number"
+  },
+  {
+    "title": "Qualified Leads",
+    "field": "qualifiedLeads",
+    "rateField": "qualificationRate",
+    "description": "Leads marked as qualified.",
+    "descriptionColor": "{rateField >= 70 ? 'green' : rateField >= 40 ? 'yellow' : 'red'}",
+    "icon": "FaCheckCircle",
+    "value": "{field}",
+    "displayFormat": "number"
+  },
+  {
+    "title": "Converted Leads",
+    "field": "converted",
+    "rateField": "converted",
+    "description": "Converted Leads",
+    "descriptionColor": "{rateField >= 70 ? 'green' : rateField >= 40 ? 'yellow' : 'red'}",
+    "icon": "FaCheckCircle",
+    "value": "{field}",
+    "displayFormat": "number"
+  }
+]

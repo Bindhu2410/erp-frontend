@@ -1,0 +1,131 @@
+{
+  "title": "Sales Order Information",
+  "fields": [
+    {
+      "id": "salesOrderNumber",
+      "label": "Sales Order Number",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-generated"
+    },
+    {
+      "id": "quotationNumber",
+      "label": "Quotation Number",
+      "type": "select",
+      "required": true,
+      "options": "quotationNumbers",
+      "placeholder": "Select Quotation"
+    },
+    {
+      "id": "customerName",
+      "label": "Customer Name",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-filled from Quotation"
+    },
+    {
+      "id": "orderDate",
+      "label": "Order Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "expectedDeliveryDate",
+      "label": "Expected Delivery Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "orderStatus",
+      "label": "Order Status",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "draft", "label": "Draft" },
+        { "value": "confirmed", "label": "Confirmed" },
+        { "value": "processing", "label": "Processing" },
+        { "value": "completed", "label": "Completed" },
+        { "value": "cancelled", "label": "Cancelled" }
+      ]
+    },
+    {
+      "id": "billingAddress",
+      "label": "Billing Address",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Enter Billing Address"
+    },
+    {
+      "id": "shippingAddress",
+      "label": "Shipping Address",
+      "type": "textarea",
+      "required": true,
+      "placeholder": "Enter Shipping Address"
+    },
+    {
+      "id": "paymentTerms",
+      "label": "Payment Terms",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "net15", "label": "Net 15" },
+        { "value": "net30", "label": "Net 30" },
+        { "value": "net45", "label": "Net 45" },
+        { "value": "net60", "label": "Net 60" }
+      ]
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "USD", "label": "USD" },
+        { "value": "EUR", "label": "EUR" },
+        { "value": "GBP", "label": "GBP" },
+        { "value": "INR", "label": "INR" }
+      ]
+    },
+    {
+      "id": "subTotal",
+      "label": "Sub Total",
+      "type": "number",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "id": "taxRate",
+      "label": "Tax Rate (%)",
+      "type": "number",
+      "required": true
+    },
+    {
+      "id": "taxAmount",
+      "label": "Tax Amount",
+      "type": "number",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "id": "totalAmount",
+      "label": "Total Amount",
+      "type": "number",
+      "required": true,
+      "readOnly": true
+    },
+    {
+      "id": "specialInstructions",
+      "label": "Special Instructions",
+      "type": "textarea",
+      "placeholder": "Enter special instructions"
+    },
+    {
+      "id": "internalNotes",
+      "label": "Internal Notes",
+      "type": "textarea",
+      "placeholder": "Enter internal notes"
+    }
+  ]
+}

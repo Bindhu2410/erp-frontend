@@ -1,0 +1,56 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --light-gray: #f8f9fa;
+    --dark-gray: #343a40;
+}
+
+.page-header {
+    background: linear-gradient(135deg, #fff, #fff);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.branch-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.branch-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.required-field::after {
+    content: " *";
+    color: #dc3545;
+}
+
+.card-title {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.badge {
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+}
+
+.dropdown-toggle.btn-light {
+    background: none;
+    border: none;
+    padding: 0.25rem 0.5rem;
+}
+
+.dropdown-toggle.btn-light:hover,
+.dropdown-toggle.btn-light:focus {
+    background: #f8f9fa;
+}

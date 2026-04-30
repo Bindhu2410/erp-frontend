@@ -1,0 +1,30 @@
+[
+  {
+    "title": "New This Week",
+    "field": "newThisWeek",
+    "description": "Vouchers created this week",
+    "icon": "FaCalendarAlt",
+    "displayFormat": "number"
+  },
+  {
+    "title": "This Week Total Amount",
+    "field": "thisWeekTotalAmount",
+    "description": "Total amount this week",
+    "icon": "FaRupeeSign",
+    "displayFormat": "currency"
+  },
+  {
+    "title": "Total Vouchers This Month",
+    "field": "totalVouchersThisMonth",
+    "description": "Vouchers created this month",
+    "icon": "FaFileInvoice",
+    "displayFormat": "number"
+  },
+  {
+    "title": "Month Total Amount",
+    "field": "monthTotalAmount",
+    "description": "Total amount this month",
+    "icon": "FaWallet",
+    "displayFormat": "currency"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Total Employees",
+    "field": "totalEmployees",
+    "growthField": "totalEmployeesGrowth",
+    "description": "Total number of employees.",
+    "descriptionColor": "{growthField >= 0 ? 'green' : 'red'}",
+    "icon": "FaUsers",
+    "value": "{field}",
+    "displayFormat": "number"
+  },
+  {
+    "title": "New This Month",
+    "field": "newThisMonth",
+    "growthField": "newThisMonthGrowth",
+    "description": "New employees added this month.",
+    "descriptionColor": "{growthField >= 0 ? 'green' : 'red'}",
+    "icon": "FaCalendarAlt",
+    "value": "{field}",
+    "displayFormat": "number"
+  },
+  {
+    "title": "On Leave",
+    "field": "onLeave",
+    "rateField": "onLeaveRate",
+    "description": "Employees currently on leave.",
+    "descriptionColor": "{rateField >= 20 ? 'red' : rateField >= 10 ? 'yellow' : 'green'}",
+    "icon": "FaUmbrellaBeach",
+    "value": "{field}",
+    "displayFormat": "number"
+  },
+  {
+    "title": "Active Departments",
+    "field": "departments",
+    "rateField": "departments",
+    "description": "Total active departments.",
+    "descriptionColor": "green",
+    "icon": "FaBuilding",
+    "value": "{field}",
+    "displayFormat": "number"
+  }
+]

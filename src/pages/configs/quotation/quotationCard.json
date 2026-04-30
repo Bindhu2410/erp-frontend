@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Draft",
+    "id": "draft",
+    "value": 10,
+    "description": "Quotations being prepared",
+    "icon": "FaFileAlt"
+  },
+  {
+    "title": "Negotiation",
+    "id": "negotiation",
+    "value": 10,
+    "description": "Quotations being prepared",
+    "icon": "FaFileAlt"
+  },
+
+  {
+    "title": "Approved",
+    "id": "approved",
+    "value": 4,
+    "description": "Reviewed and approved.",
+    "icon": "FaCheckCircle"
+  },
+  {
+    "title": "Submitted",
+    "id": "submitted",
+    "value": 7,
+    "description": "Quotations submitted to clients",
+    "icon": "FaPaperPlane"
+  },
+  {
+    "title": "Cancelled",
+    "id": "cancelled",
+    "value": 2,
+    "description": "Quotations rejected by clients",
+    "icon": "FaTimesCircle"
+  },
+  {
+    "title": "Final Quotation",
+    "id": "finalQuotation",
+    "value": 2,
+    "description": "Finalized quotations",
+    "icon": "FaFileAlt"
+  }
+]

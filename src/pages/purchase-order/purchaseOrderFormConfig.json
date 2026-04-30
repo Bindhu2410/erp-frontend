@@ -1,0 +1,97 @@
+{
+  "formFields": [
+    {
+      "id": "PoId",
+      "type": "text",
+      "label": "PO ID",
+      "placeholder": "Enter PO ID",
+      "required": true,
+      "disabled": "edit"
+    },
+    {
+      "id": "PurchaseRequisitionId",
+      "type": "dropdown",
+      "label": "Purchase Requisition",
+      "placeholder": "Select Purchase Requisition",
+      "required": true,
+      "apiEndpoint": "PurchaseRequisitions",
+      "valueField": "id",
+      "labelField": "purchaseRequisitionId",
+      "descriptionField": "description"
+    },
+    {
+      "id": "SupplierId",
+      "type": "dropdown",
+      "label": "Supplier",
+      "placeholder": "Select Supplier",
+      "required": true,
+      "apiEndpoint": "Suppliers",
+      "valueField": "id",
+      "labelField": "name"
+    },
+    {
+      "id": "Status",
+      "type": "dropdown",
+      "label": "Status",
+      "placeholder": "Select Status",
+      "required": true,
+      "options": [
+        { "label": "Draft", "value": "Draft" },
+        { "label": "Pending", "value": "Pending" },
+        { "label": "Approved", "value": "Approved" },
+        { "label": "Rejected", "value": "Rejected" },
+        { "label": "Completed", "value": "Completed" }
+      ]
+    },
+    {
+      "id": "DeliveryDate",
+      "type": "date",
+      "label": "Delivery Date",
+      "required": true
+    },
+    {
+      "id": "Description",
+      "type": "textarea",
+      "label": "Description",
+      "placeholder": "Enter description",
+      "rows": 3
+    }
+  ],
+  "itemsTable": {
+    "columns": [
+      {
+        "key": "itemName",
+        "title": "Item Name",
+        "dataIndex": "itemName",
+        "width": "30%"
+      },
+      {
+        "key": "quantity",
+        "title": "Quantity",
+        "dataIndex": "Quantity",
+        "width": "15%"
+      },
+      {
+        "key": "uom",
+        "title": "UOM",
+        "dataIndex": "uomName",
+        "width": "15%"
+      },
+      {
+        "key": "unitPrice",
+        "title": "Unit Price",
+        "dataIndex": "unitPrice",
+        "width": "20%",
+        "format": "currency"
+      },
+      {
+        "key": "total",
+        "title": "Total",
+        "width": "20%",
+        "computed": true,
+        "formula": "Quantity * unitPrice",
+        "format": "currency"
+      }
+    ]
+  }
+}

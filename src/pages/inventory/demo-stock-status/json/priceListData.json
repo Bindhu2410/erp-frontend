@@ -1,0 +1,116 @@
+{
+  "priceItems": [
+    {
+      "id": 1,
+      "sku": "LP-X13-001",
+      "name": "Laptop X13 Pro",
+      "category": "Electronics",
+      "basePrice": 60000,
+      "hasTieredPricing": true
+    },
+    {
+      "id": 2,
+      "sku": "LTP-001",
+      "name": "Desktop Computer",
+      "category": "Electronics",
+      "basePrice": 45000,
+      "hasTieredPricing": false
+    },
+    {
+      "id": 3,
+      "sku": "WL-MOU-001",
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "basePrice": 1200,
+      "hasTieredPricing": true
+    },
+    {
+      "id": 4,
+      "sku": "OFF-CH-001",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "basePrice": 4500,
+      "hasTieredPricing": false
+    },
+    {
+      "id": 5,
+      "sku": "OFF-DSK-001",
+      "name": "Office Desk",
+      "category": "Furniture",
+      "basePrice": 8500,
+      "hasTieredPricing": true
+    }
+  ],
+  "priceListDetails": {
+    "id": "PL-001",
+    "name": "Retail Price List",
+    "status": "Active",
+    "currency": "INR"
+  },
+  "productDetails": {
+    "1": {
+      "id": 1,
+      "sku": "LP-X13-001",
+      "name": "Laptop X13 Pro",
+      "category": "Electronics",
+      "basePrice": 60000,
+      "priceTiers": [
+        { "minQuantity": 2, "maxQuantity": 5, "price": 58000 },
+        { "minQuantity": 6, "maxQuantity": 10, "price": 57000 },
+        { "minQuantity": 11, "maxQuantity": null, "price": 56000 }
+      ]
+    },
+    "2": {
+      "id": 2,
+      "sku": "LTP-001",
+      "name": "Desktop Computer",
+      "category": "Electronics",
+      "basePrice": 45000,
+      "priceTiers": []
+    },
+    "3": {
+      "id": 3,
+      "sku": "WL-MOU-001",
+      "name": "Wireless Mouse",
+      "category": "Electronics",
+      "basePrice": 1200,
+      "priceTiers": [
+        { "minQuantity": 2, "maxQuantity": 5, "price": 1150 },
+        { "minQuantity": 6, "maxQuantity": null, "price": 1100 }
+      ]
+    },
+    "4": {
+      "id": 4,
+      "sku": "OFF-CH-001",
+      "name": "Office Chair",
+      "category": "Furniture",
+      "basePrice": 4500,
+      "priceTiers": []
+    },
+    "5": {
+      "id": 5,
+      "sku": "OFF-DSK-001",
+      "name": "Office Desk",
+      "category": "Furniture",
+      "basePrice": 8500,
+      "priceTiers": [
+        { "minQuantity": 2, "maxQuantity": 5, "price": 8200 },
+        { "minQuantity": 6, "maxQuantity": 10, "price": 8000 },
+        { "minQuantity": 11, "maxQuantity": null, "price": 7800 }
+      ]
+    }
+  },
+  "categories": [
+    { "value": "Electronics", "label": "Electronics" },
+    { "value": "Office Supplies", "label": "Office Supplies" },
+    { "value": "Furniture", "label": "Furniture" },
+    { "value": "Hardware", "label": "Hardware" }
+  ],
+  "availableProducts": [
+    { "id": "101", "sku": "LP-X15-001", "name": "Laptop X15 Pro" },
+    { "id": "102", "sku": "KB-WL-001", "name": "Wireless Keyboard" },
+    { "id": "103", "sku": "MON-24-001", "name": "HD Monitor 24\"" },
+    { "id": "104", "sku": "OFF-CH-002", "name": "Executive Office Chair" },
+    { "id": "105", "sku": "OFF-DSK-002", "name": "Standing Desk" }
+  ]
+}

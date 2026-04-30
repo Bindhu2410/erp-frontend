@@ -1,0 +1,78 @@
+{
+    "title": "Address",
+    "fields": [
+      {
+        "fieldName": "Address Type",
+        "id": "type",
+        "type": "dropdown",
+        "options": [
+          "Invoice",
+          "Shipping",
+          "Follow-up Address",
+          "Demo Address",
+          "Other"
+        ],
+        "required": true
+      },
+      {
+        "fieldName": "Contact Name",
+        "id": "contactName",
+        "type": "text",
+        "name": "Name",
+        "required": true
+      },
+     {
+      "fieldName": "Pincode",
+      "id": "pincode",
+      "type": "searchtext",
+      "URL": "GeographicalDivision/hierarchy/pincode",
+      "required": false
+    },  
+     {
+      "fieldName": "Area",
+      "idName": "area",
+      "type": "dropdown",
+      "required": false,
+      "options":[]
+    },
+    {
+      "fieldName": "City",
+      "idName": "city",
+      "type": "text",
+      "required": false,
+       "disabled": true
+    },
+    {
+      "fieldName": "District",
+      "id": "district",
+      "type": "text",
+      "required": false,
+       "disabled": true
+    },
+    {
+      "fieldName": "State",
+      "id": "state",
+      "type": "text",
+      "required": false,
+      "disabled": true
+    },
+      {
+        "fieldName": "Door No",
+        "idName": "doorNo",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Street",
+        "idName": "street",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Landmark",
+        "idName": "landmark",
+        "type": "text",
+        "required": false
+      }
+    ]
+  }

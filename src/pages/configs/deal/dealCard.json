@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Current Deals",
+    "value": 15,
+    "description": "Deals currently in progress",
+    "icon": "FaClock"
+  },
+  {
+    "title": "Deal Won",
+    "value": 7,
+    "description": "Deals successfully closed",
+    "icon": "FaTrophy"
+  },
+  {
+    "title": "Deal Lost",
+    "value": 4,
+    "description": "Deals lost or cancelled",
+    "icon": "FaTimesCircle"
+  },
+  {
+    "title": "Deals On Hold",
+    "value": 3,
+    "description": "Deals temporarily paused",
+    "icon": "FaPauseCircle"
+  }
+]

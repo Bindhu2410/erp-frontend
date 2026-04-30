@@ -1,0 +1,14 @@
+[
+  {
+    "section": "Interested Products",
+    "key": "products",
+    "columns": [
+      { "fieldName": "Product Name", "id": "productName" },
+      { "fieldName": "Model Name", "id": "modelName" },
+      { "fieldName": "Make Name", "id": "makeName" },
+      { "fieldName": "Category Name", "id": "categoryName" },
+      { "fieldName": "Quantity", "id": "quantity" },
+      { "fieldName": "Amount", "id": "amount" }
+    ]
+  }
+]

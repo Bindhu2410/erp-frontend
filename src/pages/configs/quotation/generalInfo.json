@@ -1,0 +1,98 @@
+{
+  "title": "General Information",
+  "fields": [
+    {
+      "fieldName": "Quotation Type",
+      "id": "quotationType",
+      "type": "dropdown",
+      "options": ["Standard", "Special"],
+      "required": true,
+      "zIndex": 1
+    },
+    {
+      "fieldName": "Quotation Date",
+      "id": "quotationDate",
+      "type": "date",
+      "required": true,
+      "zIndex": 2
+    },
+    {
+      "fieldName": "Opportunity ID",
+      "id": "opportunityId",
+      "type": "dropdown",
+      "URL": "api/SalesOpportunity/with-items",
+      "required": false,
+      "zIndex": 3
+    },
+    {
+      "fieldName": "Valid Till",
+      "id": "validTill",
+      "type": "date",
+      "required": true,
+      "zIndex": 4
+    },
+    {
+      "fieldName": "Hospital/Clinic/Individual",
+      "id": "customerName",
+      "type": "dropdown",
+      "URL": "api/SalesOpportunity/with-items",
+      "required": true,
+      "zIndex": 5
+    },
+    {
+      "fieldName": "Company Name",
+      "id": "companyName",
+      "type": "text",
+      "required": false,
+      "parentFldForVisible": "territory",
+      "parentFldValForVisible": "Hospital",
+      "zIndex": 6
+    },
+    {
+      "fieldName": "Company ID",
+      "id": "companyId",
+      "type": "text",
+      "required": false,
+      "parentFldForVisible": "territory",
+      "parentFldValForVisible": "Hospital",
+      "zIndex": 7
+    },
+    {
+      "fieldName": "Lead/Customer Mobile",
+      "id": "contactMobileNo",
+      "type": "text",
+      "required": false,
+      "zIndex": 8
+    },
+
+    {
+      "fieldName": "Status",
+      "idName": "status",
+      "type": "dropdown",
+      "options": ["Draft", "Final Quotation", "Negotiation", "Cancelled"],
+      "required": true,
+      "zIndex": 9
+    },
+    {
+      "fieldName": "Assigned To",
+      "id": "assignedTo",
+      "type": "dropdown",
+      "required": false,
+      "URL": "/api/SalesLead/assigned-to-dropdown",
+      "zIndex": 10
+    },
+
+    {
+      "fieldName": "Comments",
+      "id": "comments",
+      "type": "multiselectwithother",
+      "required": false,
+      "zIndex": 11,
+      "options": [
+        { "id": "4", "name": "Discount" },
+        { "id": "5", "name": "Optional Items" },
+        { "id": "6", "name": "Special Warranty" }
+      ]
+    }
+  ]
+}

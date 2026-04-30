@@ -1,0 +1,42 @@
+[
+  {
+    "deliveryId": "DEL-001",
+    "items": "1-5 (50 units)",
+    "delivered": "Mar 18, 2024",
+    "expected": null,
+    "scheduled": null,
+    "carrier": "FedEx Express",
+    "status": "Delivered",
+    "progress": 100
+  },
+  {
+    "deliveryId": "DEL-002",
+    "items": "6-10 (40 units)",
+    "delivered": null,
+    "expected": "Mar 22, 2024",
+    "scheduled": null,
+    "carrier": "UPS Ground",
+    "status": "In Transit",
+    "progress": 75
+  },
+  {
+    "deliveryId": "DEL-003",
+    "items": "11-15 (35 units)",
+    "delivered": null,
+    "expected": null,
+    "scheduled": "Mar 25, 2024",
+    "carrier": "DHL Express",
+    "status": "Ready to Ship",
+    "progress": 25
+  },
+  {
+    "deliveryId": "DEL-004",
+    "items": "16-20 (30 units)",
+    "delivered": null,
+    "expected": null,
+    "scheduled": "Mar 28, 2024",
+    "carrier": "TBD",
+    "status": "Pending",
+    "progress": 10
+  }
+]

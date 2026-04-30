@@ -1,0 +1,182 @@
+{
+  "title": "General Information",
+  "fields": [
+
+    {
+      "fieldName": "Lead Source",
+      "idName": "leadSource",
+      "type": "dropdown",
+      "options": ["Referral", "Social Media", "Event", "Direct"],
+      "required": true
+    },
+
+    {
+      "fieldName": "Lead Type",
+      "idName": "leadType",
+      "type": "dropdown",
+      "options": ["Clinic", "Hospital", "Individual"],
+      "collectionName": "fieldids",
+      "DataStorecollectionName": "sales_leads",
+      "required": true
+    },
+    {
+      "fieldName": "Hospital/Clinic Name",
+      "idName": "customerName",
+      "type": "text",
+      "name": "HospitalName",
+      "required": true
+    },
+    {
+      "fieldName": "Contact Name",
+      "idName": "contactName",
+      "type": "text",
+      "name": "Name",
+      "required": true
+    },
+    {
+      "fieldName": "Contact Mobile No",
+      "idName": "contactMobileNo",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "fieldName": "Pincode",
+      "id": "pincode",
+      "type": "searchtext",
+      "URL": "GeographicalDivision/hierarchy/pincode",
+      "required": true
+    },
+    {
+      "fieldName": "Area",
+      "idName": "area",
+      "type": "dropdown",
+      "required": true,
+      "options": []
+    },
+    {
+      "fieldName": "State",
+      "id": "state",
+      "type": "text",
+      "required": false,
+      "disabled": true
+    },
+    {
+      "fieldName": "District",
+      "id": "district",
+      "type": "text",
+      "required": false,
+      "disabled": true
+    },
+    {
+      "fieldName": "City",
+      "idName": "city",
+      "type": "text",
+      "required": false,
+      "disabled": true
+    },
+    {
+      "fieldName": "Door No",
+      "idName": "doorNo",
+      "type": "text",
+      "required": false
+    },
+    {
+      "fieldName": "Street",
+      "idName": "street",
+      "type": "text",
+      "required": false
+    },
+    {
+      "fieldName": "Landmark",
+      "idName": "landmark",
+      "type": "text",
+      "required": false
+    },
+    {
+      "fieldName": "LandLine No",
+      "idName": "landLineNo",
+      "type": "tel",
+      "required": false
+    },
+
+    {
+      "fieldName": "Fax",
+      "idName": "fax",
+      "type": "tel",
+      "required": false
+    },
+    {
+      "fieldName": "Email",
+      "idName": "email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "fieldName": "Website",
+      "idName": "website",
+      "type": "url",
+      "required": false
+    },
+    {
+      "fieldName": "Social Media",
+      "idName": "socialMedia",
+      "type": "dropdown",
+      "options": ["Facebook", "Pinterest", "Youtube", "Whatsapp"],
+      "parentFldForVisible": "leadSource",
+      "parentFldValForVisible": "Social Media",
+      "required": true
+    },
+    {
+      "fieldName": "Referral Source Name",
+      "idName": "referralSourceName",
+      "type": "text",
+      "parentFldForVisible": "leadSource",
+      "parentFldValForVisible": "Referral",
+      "required": true
+    },
+    {
+      "fieldName": "Hospital/Department of Referral",
+      "idName": "hospitalOfReferral",
+      "type": "text",
+      "parentFldForVisible": "leadSource",
+      "parentFldValForVisible": "Referral",
+      "required": true
+    },
+    {
+      "fieldName": "Event Name",
+      "idName": "eventName",
+      "type": "text",
+      "parentFldForVisible": "leadSource",
+      "parentFldValForVisible": "Event",
+      "required": true
+    },
+    {
+      "fieldName": "Event Date",
+      "idName": "eventDate",
+      "type": "date",
+      "parentFldForVisible": "leadSource",
+      "parentFldValForVisible": "Event",
+      "required": true
+    },
+    {
+      "fieldName": "Status",
+      "idName": "status",
+      "type": "dropdown",
+      "options": ["New", "Qualified", "Disqualified"],
+      "required": true
+    },
+    {
+      "fieldName": "Assigned To",
+      "id": "assignedTo",
+      "type": "dropdown",
+      "required": false,
+      "URL": "/api/UmTeamHierarchy/subordinates"
+    },
+    {
+      "fieldName": "Comments",
+      "idName": "comments",
+      "type": "textarea",
+      "required": true
+    }
+  ]
+}

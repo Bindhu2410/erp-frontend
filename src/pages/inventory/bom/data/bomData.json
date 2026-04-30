@@ -1,0 +1,206 @@
+{
+  "items": [
+    {
+      "id": "BOM001",
+      "productId": "PROD-ECGM1001",
+      "productName": "ECG Monitor Standard",
+      "description": "Standard 12-lead ECG monitor assembly",
+      "version": "1.2",
+      "componentCount": 24,
+      "lastUpdated": "2023-10-15",
+      "status": "active"
+    },
+    {
+      "id": "BOM002",
+      "productId": "PROD-POXM2045",
+      "productName": "Pulse Oximeter Pro",
+      "description": "Professional pulse oximeter with advanced features",
+      "version": "2.0",
+      "componentCount": 18,
+      "lastUpdated": "2023-11-02",
+      "status": "active"
+    },
+    {
+      "id": "BOM003",
+      "productId": "PROD-INFU3022",
+      "productName": "Infusion Pump System",
+      "description": "Smart infusion pump with safety features",
+      "version": "3.1",
+      "componentCount": 32,
+      "lastUpdated": "2023-09-20",
+      "status": "active"
+    },
+    {
+      "id": "BOM004",
+      "productId": "PROD-VENT4010",
+      "productName": "Ventilator Module",
+      "description": "ICU-grade ventilator assembly",
+      "version": "1.0",
+      "componentCount": 46,
+      "lastUpdated": "2023-11-14",
+      "status": "draft"
+    },
+    {
+      "id": "BOM005",
+      "productId": "PROD-DEFI5003",
+      "productName": "Defibrillator Portable",
+      "description": "Portable defibrillator with integrated monitor",
+      "version": "2.5",
+      "componentCount": 28,
+      "lastUpdated": "2023-10-28",
+      "status": "active"
+    },
+    {
+      "id": "BOM006",
+      "productId": "PROD-ULTR6087",
+      "productName": "Ultrasound Scanner",
+      "description": "Portable ultrasound scanner with display unit",
+      "version": "1.5",
+      "componentCount": 35,
+      "lastUpdated": "2023-08-17",
+      "status": "inactive"
+    },
+    {
+      "id": "BOM007",
+      "productId": "PROD-PATM7055",
+      "productName": "Patient Monitor",
+      "description": "Multi-parameter patient monitor",
+      "version": "2.2",
+      "componentCount": 29,
+      "lastUpdated": "2023-11-10",
+      "status": "active"
+    },
+    {
+      "id": "BOM008",
+      "productId": "PROD-XRAY8099",
+      "productName": "X-Ray Control Unit",
+      "description": "Digital X-Ray control system",
+      "version": "1.1",
+      "componentCount": 42,
+      "lastUpdated": "2023-09-05",
+      "status": "draft"
+    }
+  ],
+  "details": [
+    {
+      "id": "BOM001",
+      "productId": "PROD-ECGM1001",
+      "productName": "ECG Monitor Standard",
+      "description": "Standard 12-lead ECG monitor assembly",
+      "version": "1.2",
+      "componentCount": 24,
+      "lastUpdated": "2023-10-15",
+      "status": "active",
+      "effectiveDate": "2023-03-01",
+      "createdBy": "John Adams",
+      "creationDate": "2023-03-01",
+      "lastUpdatedBy": "Sarah Miller",
+      "components": [
+        {
+          "id": "COMP001",
+          "itemCode": "PCB-ECG-MAIN",
+          "description": "Main PCB for ECG signal processing",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": "Rev. C board with updated capacitors"
+        },
+        {
+          "id": "COMP002",
+          "itemCode": "DISP-LCD-10.4",
+          "description": "10.4-inch LCD display module",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": ""
+        },
+        {
+          "id": "COMP003",
+          "itemCode": "CAB-ECG-12L",
+          "description": "12-lead ECG cable assembly",
+          "quantity": 1,
+          "uom": "SET",
+          "comments": "Includes electrodes"
+        },
+        {
+          "id": "COMP004",
+          "itemCode": "PWR-SUP-12V",
+          "description": "12V Medical-grade power supply",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": "UL certified"
+        },
+        {
+          "id": "COMP005",
+          "itemCode": "ENC-ECG-STD",
+          "description": "Standard enclosure for ECG monitor",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": ""
+        },
+        {
+          "id": "COMP006",
+          "itemCode": "BTN-SET-ECG",
+          "description": "Button set for ECG control panel",
+          "quantity": 1,
+          "uom": "SET",
+          "comments": ""
+        }
+      ]
+    },
+    {
+      "id": "BOM002",
+      "productId": "PROD-POXM2045",
+      "productName": "Pulse Oximeter Pro",
+      "description": "Professional pulse oximeter with advanced features",
+      "version": "2.0",
+      "componentCount": 18,
+      "lastUpdated": "2023-11-02",
+      "status": "active",
+      "effectiveDate": "2023-04-15",
+      "createdBy": "Lisa Johnson",
+      "creationDate": "2023-04-15",
+      "lastUpdatedBy": "David Chen",
+      "components": [
+        {
+          "id": "COMP007",
+          "itemCode": "PCB-POX-MAIN",
+          "description": "Main PCB for pulse oximeter",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": ""
+        },
+        {
+          "id": "COMP008",
+          "itemCode": "SENS-SPO2-FNG",
+          "description": "SpO2 finger sensor",
+          "quantity": 2,
+          "uom": "EA",
+          "comments": "Adult size"
+        },
+        {
+          "id": "COMP009",
+          "itemCode": "DISP-OLED-2.4",
+          "description": "2.4-inch OLED display",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": ""
+        },
+        {
+          "id": "COMP010",
+          "itemCode": "BATT-LI-3.7V",
+          "description": "3.7V Lithium-ion battery",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": "Rechargeable"
+        },
+        {
+          "id": "COMP011",
+          "itemCode": "ENC-POX-PRO",
+          "description": "Enclosure for Pulse Oximeter Pro",
+          "quantity": 1,
+          "uom": "EA",
+          "comments": ""
+        }
+      ]
+    }
+  ]
+}

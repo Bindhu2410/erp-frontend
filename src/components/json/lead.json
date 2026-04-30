@@ -1,0 +1,578 @@
+[
+  {
+    "title": "Initial Information",
+    "fields": [
+      {
+        "fieldName": "Lead Type",
+        "idName": "leadType",
+        "type": "dropdown",
+        "options": ["Clinic", "Hospital", "Individual"],
+        "required": false
+      },
+      {
+        "fieldName": "Hospital/Clinic",
+        "idName": "customerName",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Contact Name",
+        "idName": "contactName",
+        "type": "text",
+        "required": true
+      },
+      {
+        "fieldName": "Salutation",
+        "idName": "salutation",
+        "type": "dropdown",
+        "options": ["Mr", "Mrs", "Ms", "Dr"],
+        "required": false
+      },
+      {
+        "fieldName": "Pincode",
+        "id": "pincode",
+        "type": "dropdown",
+        "URL": "get-pincode",
+        "required": false
+      },
+      {
+        "fieldName": "Area",
+        "idName": "area",
+        "type": "dropdown",
+        "options": [],
+        "required": false
+      },
+      {
+        "fieldName": "City",
+        "idName": "city",
+        "type": "dropdown",
+        "URL": "api/SalesDistrict",
+        "options": [],
+        "required": false
+      },
+      {
+        "fieldName": "Door No",
+        "idName": "doorNo",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Street",
+        "idName": "street",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Landmark",
+        "idName": "landmark",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Landline No",
+        "idName": "landlineNo",
+        "type": "tel",
+        "required": false
+      },
+      {
+        "fieldName": "Contact Mobile No",
+        "idName": "contactMobileNo",
+        "type": "tel",
+        "required": false
+      },
+      {
+        "fieldName": "Fax",
+        "idName": "fax",
+        "type": "tel",
+        "required": false
+      },
+      {
+        "fieldName": "Email",
+        "idName": "email",
+        "type": "email",
+        "required": false
+      },
+      {
+        "fieldName": "Website",
+        "idName": "website",
+        "type": "url",
+        "required": false
+      },
+      {
+        "fieldName": "Lead Source",
+        "idName": "leadSource",
+        "type": "dropdown",
+        "options": ["Online", "Referral", "Social Media", "Event", "Direct"],
+        "required": true
+      },
+      {
+        "fieldName": "Social Media",
+        "idName": "socialMedia",
+        "type": "dropdown",
+        "options": ["Facebook", "Pinterest", "Youtube", "Whatsapp"],
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Social Media",
+        "required": true
+      },
+      {
+        "fieldName": "Referral Source Name",
+        "idName": "referralSourceName",
+        "type": "text",
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Referral",
+        "required": true
+      },
+      {
+        "fieldName": "Hospital/Department of Referral",
+        "idName": "hospitalOfReferral",
+        "type": "text",
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Referral",
+        "required": true
+      },
+      {
+        "fieldName": "City of Referral",
+        "idName": "cityOfReferral",
+        "type": "dropdown",
+        "options": ["Coimbatore", "Chennai", "Tirppur", "Madurai"],
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Referral",
+        "required": true
+      },
+      {
+        "fieldName": "Referral Contact No",
+        "idName": "referralContactNo",
+        "type": "tel",
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Referral",
+        "required": true
+      },
+      {
+        "fieldName": "Event Name",
+        "idName": "eventName",
+        "type": "dropdown",
+        "URL": "get-sales-events",
+        "options": [],
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Event",
+        "required": true
+      },
+      {
+        "fieldName": "Event Date",
+        "idName": "eventDate",
+        "type": "date",
+        "parentFldForVisible": "leadsource",
+        "parentFldValForVisible": "Event",
+        "required": true
+      },
+      {
+        "fieldName": "Qualification Status",
+        "idName": "qualificationStatus",
+        "type": "dropdown",
+        "options": ["Qualified", "UnQualified"],
+        "required": true
+      }
+    ]
+  },
+  {
+    "title": "Address",
+    "fields": [
+      {
+        "fieldName": "Address Type",
+        "id": "type",
+        "type": "select",
+        "options": [
+          "Invoice",
+          "Shipping",
+          "Follow-up Address",
+          "Demo Address",
+          "Other"
+        ],
+        "required": true
+      },
+      {
+        "fieldName": "Contact Name",
+        "id": "contactName",
+        "type": "text",
+        "required": true
+      },
+      {
+        "fieldName": "Department",
+        "id": "department",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Pincode",
+        "id": "pincode",
+        "type": "number",
+        "required": true
+      },
+      {
+        "fieldName": "City",
+        "id": "city",
+        "type": "select",
+        "URL": "api/SalesCity",
+        "required": false
+      },
+      {
+        "fieldName": "Area",
+        "id": "area",
+        "type": "select",
+        "parentFldForVisible": "city",
+        "URL": "api/SalesArea/city/{cityId}",
+        "options": [],
+        "required": false
+      },
+      {
+        "fieldName": "Block",
+        "id": "block",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Door No",
+        "id": "doorNo",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Street",
+        "id": "street",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "Landmark",
+        "id": "landmark",
+        "type": "text",
+        "required": false
+      },
+      {
+        "fieldName": "District",
+        "id": "district",
+        "type": "select",
+        "URL": "api/SalesDistrict",
+        "required": false
+      },
+      {
+        "fieldName": "State",
+        "id": "state",
+        "type": "select",
+        "URL": "api/SalesState",
+        "options": [],
+        "required": false
+      },
+      {
+        "fieldName": "Territory",
+        "id": "territory",
+        "type": "select",
+        "URL": "api/SalesTerritory",
+        "options": [],
+        "required": false
+      }
+    ],
+    "tableColumns": [
+      { "fieldName": "Address Type", "id": "type" },
+      { "fieldName": "Contact Name", "id": "contactName" },
+      { "fieldName": "Block", "id": "block" },
+      { "fieldName": "Department", "id": "department" },
+      { "fieldName": "Door No", "id": "doorNo" },
+      { "fieldName": "Street", "id": "street" },
+      { "fieldName": "Pincode", "id": "pincode" },
+      { "fieldName": "Landmark", "id": "landmark" },
+      { "fieldName": "City", "id": "city" },
+      { "fieldName": "District", "id": "district" },
+      { "fieldName": "State", "id": "state" }
+    ]
+  },
+  {
+    "title": "Contact Details",
+    "fields": [
+      {
+        "title": "Personal Information",
+        "fields": [
+          {
+            "fieldName": "Contact Name",
+            "id": "contactName",
+            "type": "text",
+            "required": true
+          },
+          {
+            "fieldName": "Email",
+            "id": "email",
+            "type": "email",
+            "required": true
+          },
+          {
+            "fieldName": "Salutation",
+            "id": "salutation",
+            "type": "select",
+            "options": ["Mr", "Mrs", "Ms", "Dr"],
+            "required": false
+          },
+          {
+            "fieldName": "Own Clinic",
+            "id": "ownClinic",
+            "type": "select",
+            "options": ["Yes", "No"],
+            "required": false
+          },
+          {
+            "fieldName": "Clinic Visiting Hours",
+            "id": "clinicVisitingHours",
+            "type": "multiselect",
+            "options": [
+              "07:00 AM - 08:00 AM",
+              "08:00 AM - 09:00 AM",
+              "09:00 AM - 10:00 AM",
+              "10:00 AM - 11:00 AM",
+              "11:00 AM - 12:00 PM",
+              "12:00 PM - 01:00 PM",
+              "01:00 PM - 02:00 PM",
+              "02:00 PM - 03:00 PM",
+              "03:00 PM - 04:00 PM",
+              "04:00 PM - 05:00 PM",
+              "05:00 PM - 06:00 PM",
+              "06:00 PM - 07:00 PM",
+              "07:00 PM - 08:00 PM",
+              "08:00 PM - 09:00 PM"
+            ],
+            "required": true
+          },
+          {
+            "fieldName": "Clinic Address",
+            "id": "clinicAddress",
+            "type": "text",
+            "required": false
+          }
+        ]
+      },
+      {
+        "title": "Professional Details",
+        "fields": [
+          {
+            "fieldName": "Job Title",
+            "id": "jobTitle",
+            "type": "select",
+            "required": false
+          },
+          {
+            "fieldName": "Department",
+            "id": "departmentName",
+            "type": "select",
+            "options": [
+              "Medical",
+              "Inpatient",
+              "Outpatient",
+              "Nursing",
+              "Pharmacy"
+            ],
+            "required": true
+          },
+          {
+            "fieldName": "Specialist",
+            "id": "specialist",
+            "type": "select",
+            "options": [
+              "General Practitioner",
+              "Family Physician",
+              "Pediatrician",
+              "Gynecologist",
+              "Cardiologist",
+              "Dermatologist",
+              "Surgeon",
+              "Orthopedic Surgeon",
+              "Neurologist",
+              "Psychiatrist",
+              "Radiologist",
+              "Anesthesiologist",
+              "Urologist",
+              "Nephrologist",
+              "Gastroenterologist",
+              "Oncologist",
+              "Endocrinologist",
+              "Pulmonologist",
+              "Otolaryngologist (ENT)",
+              "Ophthalmologist",
+              "Rheumatologist",
+              "Pathologist",
+              "Plastic Surgeon",
+              "Vascular Surgeon",
+              "Critical Care Specialist",
+              "Sports Medicine Specialist"
+            ],
+            "required": true
+          },
+          {
+            "fieldName": "Degree",
+            "id": "degree",
+            "type": "multiselect",
+            "options": [
+              "MBBS (Bachelor of Medicine, Bachelor of Surgery)",
+              "MD (Doctor of Medicine)",
+              "MS (Master of Surgery)",
+              "DM (Doctorate of Medicine)",
+              "MCh (Master of Chirurgiae)",
+              "DNB (Diplomate of National Board)",
+              "BDS (Bachelor of Dental Surgery)",
+              "MDS (Master of Dental Surgery)",
+              "BHMS (Bachelor of Homeopathic Medicine and Surgery)",
+              "BAMS (Bachelor of Ayurvedic Medicine and Surgery)",
+              "BSMS (Bachelor of Siddha Medicine and Surgery)",
+              "BPT (Bachelor of Physiotherapy)",
+              "MPH (Master of Public Health)",
+              "PhD (Doctor of Philosophy in Medicine)",
+              "Fellowship (Specialized Medical Training)"
+            ],
+            "required": true
+          }
+        ]
+      },
+      {
+        "title": "Contact Info",
+        "fields": [
+          {
+            "fieldName": "Mobile Number",
+            "id": "mobileNo",
+            "type": "tel",
+            "required": true
+          },
+          {
+            "fieldName": "WhatsApp",
+            "id": "whatsApp",
+            "type": "tel",
+            "required": true
+          },
+          {
+            "fieldName": "Landline No",
+            "id": "landLineNo",
+            "type": "tel",
+            "required": false
+          },
+          {
+            "fieldName": "Visiting hours",
+            "id": "visitingHours",
+            "type": "multiselect",
+            "options": [
+              "07:00 AM - 08:00 AM",
+              "08:00 AM - 09:00 AM",
+              "09:00 AM - 10:00 AM",
+              "10:00 AM - 11:00 AM",
+              "11:00 AM - 12:00 PM",
+              "12:00 PM - 01:00 PM",
+              "01:00 PM - 02:00 PM",
+              "02:00 PM - 03:00 PM",
+              "03:00 PM - 04:00 PM",
+              "04:00 PM - 05:00 PM",
+              "05:00 PM - 06:00 PM",
+              "06:00 PM - 07:00 PM",
+              "07:00 PM - 08:00 PM",
+              "08:00 PM - 09:00 PM"
+            ],
+            "required": true
+          }
+        ]
+      }
+    ],
+    "tableColumns": [
+      { "fieldName": "Contact Name", "id": "contactName" },
+      { "fieldName": "Email", "id": "email" },
+      { "fieldName": "Phone", "id": "landLineNo" },
+      { "fieldName": "Gender", "id": "gender" },
+      { "fieldName": "Job Title", "id": "jobTitle" },
+      { "fieldName": "Dept. Name", "id": "departmentName" },
+      { "fieldName": "Specialist", "id": "specialist" },
+      { "fieldName": "Degree", "id": "degree" },
+      { "fieldName": "Mobile Number", "id": "mobileNumber" },
+      { "fieldName": "WhatsApp", "id": "whatsApp" },
+      { "fieldName": "Website", "id": "website" },
+      { "fieldName": "LinkedIn", "id": "linkedin" }
+    ]
+  },
+  {
+    "title": "Business Challenges",
+    "fields": [
+      {
+        "title": "Facing Challenges",
+        "fields": [
+          {
+            "fieldName": "Challenges",
+            "id": "challenges",
+            "type": "textarea",
+            "required": true
+          },
+          {
+            "fieldName": "Solution",
+            "id": "solution",
+            "type": "textarea",
+            "required": true
+          }
+        ]
+      },
+      {
+        "title": "Solution Products",
+        "fields": [
+          {
+            "fieldName": "Product Name",
+            "id": "productName",
+            "type": "multiselect",
+            "URL": "get_sales_items",
+            "options": [],
+            "required": true
+          }
+        ]
+      }
+    ],
+    "tableColumns": [
+      { "fieldName": "Challenges", "id": "challenges" },
+      { "fieldName": "Solution", "id": "solution" },
+      { "fieldName": "Product Name", "id": "productName" },
+      { "fieldName": "Model", "id": "model" },
+      { "fieldName": "Product Code", "id": "productCode" }
+    ]
+  },
+  {
+    "title": "Interested Products",
+    "fields": [
+      {
+        "fieldName": "Product Name",
+        "id": "productName",
+        "type": "select",
+        "URL": "get_sales_items",
+        "options": [],
+        "required": true
+      },
+      {
+        "fieldName": "Product Code",
+        "id": "productCode",
+        "type": "text",
+        "required": true
+      },
+      {
+        "fieldName": "Category",
+        "id": "category",
+        "type": "text"
+      },
+      {
+        "fieldName": "Make",
+        "id": "make",
+        "type": "text",
+        "required": true
+      },
+      {
+        "fieldName": "Model",
+        "id": "model",
+        "type": "text",
+        "required": true
+      }
+    ],
+    "tableColumns": [
+      { "fieldName": "Product Name", "id": "productName" },
+      { "fieldName": "Category", "id": "category" },
+      { "fieldName": "Make", "id": "make" },
+      { "fieldName": "Model", "id": "model" },
+      { "fieldName": "Product Code", "id": "productCode" }
+    ]
+  }
+]

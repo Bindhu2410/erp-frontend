@@ -1,0 +1,83 @@
+{
+  "title": "General Information",
+  "fields": [
+    {
+      "fieldName": "Opportunity ID",
+      "id": "oppuserfrndID",
+      "type": "text",
+      "disabled": true,
+      "required": false
+    },
+    {
+      "fieldName": "Demo Type",
+      "id": "demoApproach",
+      "type": "dropdown",
+      "options": ["Live Demo", "Table Demo"],
+      "required": true
+    },
+    {
+      "fieldName": "Lead Name",
+      "id": "customerName",
+      "type": "text",
+      "required": true
+    },
+
+    {
+      "fieldName": "Demo Contact",
+      "id": "demoContact",
+      "type": "text",
+      "required": true
+    },
+    {
+      "fieldName": "Contact Mobile No",
+      "id": "contactMobileNum",
+      "type": "text",
+      "required": true
+    },
+    {
+      "fieldName": "Status",
+      "id": "status",
+      "type": "dropdown",
+      "options": [
+        "Demo Requested",
+        "Demo Scheduled",
+        "Demo Completed",
+        "Demo Cancelled"
+      ],
+      "required": true,
+      "disabled": true
+    },
+
+    {
+      "fieldName": "Demo Date ",
+      "id": "demoDate",
+      "type": "date",
+      "required": true
+    },
+    {
+      "fieldName": "Demo Time ",
+      "id": "demoTime",
+      "type": "time",
+      "required": true
+    },
+    {
+      "fieldName": " Presenter Name",
+      "id": "presenterName",
+      "type": "multiselect",
+      "URL": "/api/PresenterDropdown/presenterDropdown",
+      "required": false
+    },
+    {
+      "fieldName": "Demo Address",
+      "id": "address",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "fieldName": "Comments",
+      "id": "comments",
+      "type": "textarea",
+      "required": false
+    }
+  ]
+}

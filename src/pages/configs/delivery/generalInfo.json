@@ -1,0 +1,127 @@
+{
+  "title": "Delivery Information",
+  "sections": [
+    {
+      "title": "Delivery Information",
+      "fields": [
+        {
+          "fieldName": "Delivery Number / Reference",
+          "id": "deliveryNumber",
+          "type": "text",
+          "readOnly": true,
+          "required": false,
+          "colSpan": 1
+        },
+        {
+          "fieldName": "PO Number",
+          "id": "poNumber",
+          "type": "react-select",
+          "required": true,
+          "colSpan": 1
+        }
+      ]
+    },
+    {
+      "title": "Schedule & Locations",
+      "fields": [
+        {
+          "fieldName": "Delivery Date",
+          "id": "deliveryDate",
+          "type": "date",
+          "required": true,
+          "colSpan": 1
+        },
+        {
+          "fieldName": "Vehicle Number",
+          "id": "vehicleNumber",
+          "type": "text",
+          "required": false,
+          "colSpan": 1
+        },
+        {
+          "fieldName": "Dispatch Location",
+          "id": "dispatchLocation",
+          "type": "textarea",
+          "required": true,
+          "colSpan": 2,
+          "rows": 3
+        }
+      ]
+    },
+    {
+      "title": "Transport Details",
+      "fields": [
+        {
+          "fieldName": "Transporter Name",
+          "id": "transporterName",
+          "type": "text",
+          "required": false,
+          "colSpan": 1
+        },
+        {
+          "fieldName": "Driver Name",
+          "id": "driverName",
+          "type": "text",
+          "required": false,
+          "colSpan": 1
+        },
+        {
+          "fieldName": "Driver Contact",
+          "id": "driverContact",
+          "type": "text",
+          "required": true,
+          "colSpan": 1,
+          "maxLength": 10,
+          "pattern": "[0-9]*"
+        },
+        {
+          "fieldName": "Mode of Delivery",
+          "id": "modeOfDelivery",
+          "type": "select",
+          "required": false,
+          "colSpan": 1,
+          "options": [
+            { "value": "air", "label": "Air" },
+            { "value": "road", "label": "Road" },
+            { "value": "sea", "label": "Sea" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Status & Notes",
+      "fields": [
+        {
+          "fieldName": "Delivery Status",
+          "id": "deliveryStatus",
+          "type": "select",
+          "required": false,
+          "colSpan": 1,
+          "options": [
+            { "value": "Pending", "label": "Pending" },
+            { "value": "Shipped", "label": "Shipped" },
+            { "value": "In Transit", "label": "In Transit" },
+            { "value": "Delivered", "label": "Delivered" },
+            { "value": "Returned", "label": "Returned" },
+            { "value": "Failed", "label": "Failed" }
+          ]
+        },
+        {
+          "fieldName": "Acknowledgement",
+          "id": "acknowledgement",
+          "type": "text",
+          "required": false,
+          "colSpan": 1
+        },
+        {
+          "fieldName": "Delivery Notes / Instructions",
+          "id": "deliveryNotes",
+          "type": "textarea",
+          "required": false,
+          "colSpan": 2,
+          "rows": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "title": "Payment Information",
+  "fields": [
+    {
+      "id": "paymentNumber",
+      "label": "Payment Number",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-generated"
+    },
+    {
+      "id": "orderNumber",
+      "label": "Order Number",
+      "type": "select",
+      "required": true,
+      "options": "orderNumbers",
+      "placeholder": "Select Order Number"
+    },
+    {
+      "id": "customerName",
+      "label": "Customer Name",
+      "type": "text",
+      "required": true,
+      "readOnly": true,
+      "placeholder": "Auto-filled from Order"
+    },
+    {
+      "id": "paymentDate",
+      "label": "Payment Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "paymentMethod",
+      "label": "Payment Method",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "creditCard", "label": "Credit Card" },
+        { "value": "bankTransfer", "label": "Bank Transfer" },
+        { "value": "cash", "label": "Cash" },
+        { "value": "cheque", "label": "Cheque" }
+      ]
+    },
+    {
+      "id": "amount",
+      "label": "Amount",
+      "type": "number",
+      "required": true,
+      "placeholder": "Enter Amount"
+    },
+    {
+      "id": "currency",
+      "label": "Currency",
+      "type": "select",
+      "required": true,
+      "options": [
+        { "value": "USD", "label": "USD" },
+        { "value": "EUR", "label": "EUR" },
+        { "value": "GBP", "label": "GBP" },
+        { "value": "INR", "label": "INR" }
+      ]
+    },
+    {
+      "id": "transactionId",
+      "label": "Transaction ID",
+      "type": "text",
+      "required": true,
+      "placeholder": "Enter Transaction ID"
+    },
+    {
+      "id": "remarks",
+      "label": "Remarks",
+      "type": "textarea",
+      "placeholder": "Enter any additional notes"
+    }
+  ]
+}

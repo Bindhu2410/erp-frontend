@@ -1,0 +1,26 @@
+{
+  "title": "Delivery Information",
+  "fields": [
+    { "id": "deliveryNumber", "label": "Delivery Number / Reference", "type": "text", "required": true, "readOnly": true, "placeholder": "Auto-generated" },
+    { "id": "deliveryDate", "label": "Delivery Date", "type": "date", "required": true },
+    { "id": "poNumber", "label": "PO Number", "type": "select", "required": true, "options": "purchaseOrderNumbers", "placeholder": "Select PO" },
+    { "id": "dispatchLocation", "label": "Dispatch Location", "type": "text", "required": true },
+    { "id": "warehouseLocation", "label": "Warehouse / Storage Location", "type": "text", "required": true },
+    { "id": "vehicleNumber", "label": "Vehicle Number", "type": "text" },
+    { "id": "transporterName", "label": "Transporter Name", "type": "text" },
+    { "id": "driverName", "label": "Driver Name", "type": "text" },
+    { "id": "driverContact", "label": "Driver Contact", "type": "text" },
+    { "id": "modeOfDelivery", "label": "Mode of Delivery", "type": "select", "required": true, "options": [ { "value": "air", "label": "Air" }, { "value": "road", "label": "Road" }, { "value": "sea", "label": "Sea" } ] },
+    { "id": "itemDetails", "label": "Item Details", "type": "table", "fields": [
+      { "id": "itemCode", "label": "Item Code", "type": "text", "required": true },
+      { "id": "itemDescription", "label": "Item Description", "type": "text", "required": true },
+      { "id": "quantityDelivered", "label": "Quantity Delivered", "type": "number", "required": true },
+      { "id": "batchNumber", "label": "Batch/Lot Number", "type": "text" },
+      { "id": "serialNumber", "label": "Serial Number", "type": "text" },
+      { "id": "packagingDetails", "label": "Packaging Details", "type": "text" }
+    ] },
+    { "id": "deliveryStatus", "label": "Delivery Status", "type": "select", "required": true, "options": [ { "value": "pending", "label": "Pending" }, { "value": "partial", "label": "Partial" }, { "value": "complete", "label": "Complete" } ] },
+    { "id": "deliveryNotes", "label": "Delivery Notes / Instructions", "type": "textarea" },
+    { "id": "acknowledgement", "label": "Acknowledgement", "type": "text" }
+  ]
+}

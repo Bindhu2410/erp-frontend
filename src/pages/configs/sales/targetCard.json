@@ -1,0 +1,30 @@
+[
+  {
+    "id": "totalTargetAmount",
+    "title": "Total Target",
+    "value": "INR 0",
+    "description": "Sum of all active targets",
+    "icon": "FaBullseye"
+  },
+  {
+    "id": "totalAchievedAmount",
+    "title": "Achieved",
+    "value": "INR 0",
+    "description": "Revenue achieved so far",
+    "icon": "FaChartLine"
+  },
+  {
+    "id": "achievementPercentage",
+    "title": "Achievement %",
+    "value": "0%",
+    "description": "Overall completion rate",
+    "icon": "FaPercentage"
+  },
+  {
+    "id": "remainingAmount",
+    "title": "Remaining",
+    "value": "INR 0",
+    "description": "Amount left to close targets",
+    "icon": "FaHourglassHalf"
+  }
+]

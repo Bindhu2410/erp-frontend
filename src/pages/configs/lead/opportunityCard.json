@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Identified",
+    "id": "identified",
+    "value": 0,
+    "description": "New Opportunity identified this week",
+    "icon": "FaSearch"
+  },
+  {
+    "title": "Solution Presentation",
+    "id": "solutionPresentation",
+    "value": 0,
+    "description": "Leads presented with solutions",
+    "icon": "FaChalkboardTeacher"
+  },
+  {
+    "title": "Proposal",
+    "id": "proposal",
+    "value": 0,
+    "description": "Proposals sent to clients",
+    "icon": "FaFileSignature"
+  },
+  {
+    "title": "Negotiation",
+    "id": "closedWon",
+    "value": 0,
+    "description": "Deals under pricing discussion",
+    "icon": "FaHandshake"
+  }
+]

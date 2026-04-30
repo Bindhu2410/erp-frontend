@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Acceptance Builder – JBS Mediitec India</title>
+  <style>
+    /* ================================================================
+       BASE
+    ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, Helvetica, sans-serif; background: #cbd5e1; font-size: 13px; }
+
+    /* ================================================================
+       SCREEN LAYOUT
+    ================================================================ */
+    #app { display: flex; min-height: 100vh; }
+
+    /* ----------------------------------------------------------------
+       FORM PANEL  (left, 390 px, sticky)
+    ---------------------------------------------------------------- */
+    #form-panel {
+      width: 390px;
+      min-width: 390px;
+      background: #1e293b;
+      color: #e2e8f0;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fp-header {
+      background: #e84118;
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .fp-header .logo-text { font-style: italic; font-size: 11px; font-weight: 400; opacity: .85; margin-top: 2px; }
+
+    .btn-print-top {
+      background: #fff;
+      color: #e84118;
+      border: none;
+      border-radius: 4px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-print-top:hover { background: #f5f5f5; }
+
+    .fp-body { padding: 14px; flex: 1; }
+
+    /* sections */
+    .fp-sec { background: #334155; border-radius: 6px; margin-bottom: 12px; overflow: hidden; }
+    .fp-sec-title {
+      background: #475569;
+      color: #f1f5f9;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      padding: 6px 12px;
+    }
+    .fp-sec-body { padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+
+    /* form groups */
+    .fg { display: flex; flex-direction: column; gap: 3px; }
+    .fg-row { display: flex; gap: 8px; }
+    .fg-row .fg { flex: 1; min-width: 0; }
+    .fg label {
+      font-size: 10px;
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    .fg input,
+    .fg textarea,
+    .fg select {
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 4px;
+      color: #e2e8f0;
+      padding: 6px 8px;
+      font-size: 12px;
+      font-family: inherit;
+      outline: none;
+      width: 100%;
+    }
+    .fg input:focus,
+    .fg textarea:focus,
+    .fg select:focus { border-color: #e84118; }
+    .fg textarea { resize: vertical; min-height: 50px; }
+    .fg select option { background: #1e293b; }
+
+    /* item cards */
+    .item-card {
+      background: #1e293b;
+      border: 1px solid #475569;
+      border-radius: 6px;
+      padding: 10px;
+      margin-bottom: 8px;
+    }
+    .item-card-hdr {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      padding-bottom: 7px;
+      border-bottom: 1px solid #334155;
+    }
+    .item-card-hdr span { font-size: 11px; font-weight: 700; color: #fbbf24; }
+
+    .btn-danger { background: #dc2626; color: #fff; border: none; border-radius: 3px; padding: 3px 8px; font-size: 10px; cursor: pointer; }
+    .btn-danger:hover { background: #b91c1c; }
+
+    .acc-row { display: flex; gap: 4px; align-items: center; margin-bottom: 4px; }
+    .acc-row input { flex: 1; min-width: 0; }
+
+    .btn-green-sm { background: #16a34a; color: #fff; border: none; border-radius: 3px; padding: 4px 10px; font-size: 10px; cursor: pointer; margin-top: 4px; }
+    .btn-green-sm:hover { background: #15803d; }
+
+    .btn-add-item {
+      width: 100%;
+      background: #0f172a;
+      border: 1px dashed #64748b;
+      color: #94a3b8;
+      border-radius: 6px;
+      padding: 9px;
+      font-size: 12px;
+      cursor: pointer;
+      text-align: center;
+      transition: all .2s;
+    }
+    .btn-add-item:hover { border-color: #e84118; color: #e84118; }
+
+    /* ----------------------------------------------------------------
+       PREVIEW WRAPPER  (right, scrollable)
+    ---------------------------------------------------------------- */
+    #preview-wrapper {
+      flex: 1;
+      padding: 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 22px;
+    }
+
+    /* ================================================================
+       A4 PAGE / DOCUMENT STYLES
+       (kept identical to OrderAcceptancePrintTemplate.tsx)
+    ================================================================ */
+    .page {
+      width: 794px;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,.3);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 1123px;
+    }
+
+    /* top banner */
+    .top-banner {
+      background: #e84118;
+      color: #fff;
+      text-align: center;
+      padding: 7px 10px;
+      font-size: 12.5px;
+      font-weight: bold;
+    }
+    .top-banner .sep { margin: 0 7px; font-size: 10px; }
+
+    /* header row */
+    .header-row {
+      display: flex;
+      align-items: flex-start;
+      padding: 10px 16px 8px 14px;
+      border-bottom: 1px solid #bbb;
+    }
+    .header-left {
+      flex: 0 0 215px;
+      font-size: 9.5px;
+      color: #222;
+      line-height: 1.65;
+      padding-top: 4px;
+    }
+    .header-left ul { list-style: none; }
+    .header-left ul li { display: flex; align-items: flex-start; gap: 3px; margin-bottom: 1px; }
+    .header-left ul li::before { content: "•"; flex-shrink: 0; margin-top: 1px; }
+
+    .header-center { flex: 1; display: flex; align-items: center; justify-content: center; }
+    .jbs-logo-wrap { display: flex; align-items: center; gap: 8px; }
+    .logo-mediitec-line { font-family: Arial, sans-serif; font-size: 21px; font-weight: bold; color: #111; }
+
+    .header-right {
+      flex: 0 0 165px;
+      font-size: 9.5px;
+      color: #222;
+      text-align: right;
+      line-height: 1.9;
+      padding-top: 4px;
+    }
+
+    /* title */
+    .doc-title {
+      text-align: center;
+      font-size: 14.5px;
+      font-weight: bold;
+      text-decoration: underline;
+      margin: 12px 0 10px;
+    }
+
+    /* ref/date row */
+    .ref-date-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 18px 4px;
+      font-size: 12.5px;
+    }
+
+    /* address */
+    .to-section { padding: 6px 18px 0; font-size: 12.5px; line-height: 1.65; }
+    .to-label { font-weight: bold; }
+    .address { font-weight: bold; line-height: 1.7; margin-top: 2px; }
+
+    /* subject block */
+    .dear-line       { padding: 10px 18px 1px; font-size: 12.5px; font-weight: bold; }
+    .sub-line        { padding: 1px 18px;       font-size: 12.5px; }
+    .order-ref-line  { padding: 1px 18px;       font-size: 12.5px; }
+    .ref-no-line     { padding: 1px 18px 3px;   font-size: 12.5px; }
+    .thank-you-line  { padding: 5px 18px 7px;   font-size: 12.5px; font-weight: bold; }
+
+    /* main items table */
+    .main-table {
+      width: calc(100% - 36px);
+      margin: 0 18px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .main-table th {
+      background: #f0f0f0;
+      border: 1px solid #000;
+      padding: 5px 8px;
+      font-weight: bold;
+      font-size: 12.5px;
+      text-align: left;
+    }
+    .main-table th:first-child { width: 36px; }
+    .main-table th:last-child  { width: 55px; text-align: center; }
+    .main-table td { border: 1px solid #000; padding: 5px 8px; vertical-align: top; }
+    .main-table td:first-child { font-weight: bold; text-align: center; }
+    .main-table td:last-child  { font-weight: bold; text-align: center; white-space: nowrap; }
+    .item-main    { font-weight: bold; display: block; }
+    .acc-heading  { font-weight: bold; text-decoration: underline; display: block; margin-top: 4px; }
+    .acc-list     { line-height: 1.7; margin-top: 2px; }
+
+    /* totals table */
+    .totals-table {
+      width: calc(100% - 36px);
+      margin: 0 18px;
+      border-collapse: collapse;
+      font-size: 12.5px;
+    }
+    .totals-table td { border: 1px solid #000; padding: 4px 8px; }
+    .totals-table .lbl { font-weight: bold; text-align: right; width: 78%; }
+    .totals-table .val { text-align: right; }
+    .grand-row td { font-weight: bold; }
+
+    /* terms & conditions */
+    .terms-section { padding: 10px 18px 4px; font-size: 12px; }
+    .terms-title { font-weight: bold; text-decoration: underline; margin-bottom: 5px; font-size: 12.5px; }
+    .terms-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .terms-table td { padding: 2px 4px 3px 0; vertical-align: top; line-height: 1.55; }
+    .terms-table .tlbl { font-weight: bold; white-space: nowrap; padding-right: 6px; width: 75px; }
+
+    /* note */
+    .note-section { padding: 6px 18px 3px; font-size: 12.5px; line-height: 1.6; }
+    .note-ul { text-decoration: underline; font-weight: bold; }
+
+    /* closing */
+    .confirm-line { padding: 5px 18px 3px; font-size: 12px; }
+
+    /* signature */
+    .sig-row    { display: flex; justify-content: space-between; padding: 10px 18px 4px; font-size: 12.5px; }
+    .sig-labels { display: flex; justify-content: space-between; padding: 0 18px 20px; font-size: 12.5px; font-weight: bold; }
+
+    /* footer */
+    .footer-address {
+      text-align: center;
+      font-size: 10px;
+      font-weight: bold;
+      border-top: 1px solid #aaa;
+      padding: 5px 14px 4px;
+      line-height: 1.55;
+      margin-top: auto;
+    }
+    .bottom-banner {
+      background: #3c3c3c;
+      color: #fff;
+      text-align: center;
+      padding: 6px 10px;
+      font-size: 12.5px;
+    }
+    .bottom-banner .sep { margin: 0 8px; opacity: .7; }
+
+    /* ================================================================
+       PRINT STYLES
+    ================================================================ */
+    @media print {
+      body { background: #fff !important; }
+      #app  { display: block; }
+      #form-panel { display: none !important; }
+      #preview-wrapper {
+        padding: 0;
+        overflow: visible;
+        display: block;
+        background: none;
+      }
+      .page {
+        width: 100%;
+        box-shadow: none;
+        margin: 0;
+        min-height: auto;
+        page-break-after: always;
+      }
+      .page:last-child { page-break-after: avoid; }
+      @page { margin: 8mm; size: A4; }
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <!-- ================================================================
+       FORM PANEL
+  ================================================================ -->
+  <aside id="form-panel">
+    <div class="fp-header">
+      <div>
+        <div>&#9998;&nbsp; OA Builder</div>
+        <div class="logo-text">JBS Mediitec India</div>
+      </div>
+      <button class="btn-print-top" onclick="window.print()">&#128438; Print OA</button>
+    </div>
+
+    <div class="fp-body">
+
+      <!-- Document Info -->
+      <div class="fp-sec">
+        <div class="fp-sec-title">Document Info</div>
+        <div class="fp-sec-body">
+          <div class="fg">
+            <label>Ref Number</label>
+            <input type="text" id="f-refno" value="JBS/OA/24-25/0155" oninput="update()">
+          </div>
+          <div class="fg">
+            <label>OA Date</label>
+            <input type="date" id="f-date" value="2024-12-28" oninput="update()">
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Reference -->
+      <div class="fp-sec">
+        <div class="fp-sec-title">Order Reference</div>
+        <div class="fp-sec-body">
+          <div class="fg-row">
+            <div class="fg">
+              <label>Sales Order No</label>
+              <input type="text" id="f-orderrefno" value="SO-1638" oninput="update()">
+            </div>
+            <div class="fg">
+              <label>Order Date</label>
+              <input type="date" id="f-orderdate" value="2024-08-04" oninput="update()">
+            </div>
+          </div>
+          <div class="fg-row">
+            <div class="fg">
+              <label>Quotation Ref No</label>
+              <input type="text" id="f-quotrefno" value="Q/24-25/0422" oninput="update()">
+            </div>
+            <div class="fg">
+              <label>Quotation Date</label>
+              <input type="date" id="f-quotdate" value="2024-08-05" oninput="update()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Customer Details -->
+      <div class="fp-sec">
+        <div class="fp-sec-title">Customer Details</div>
+        <div class="fp-sec-body">
+          <div class="fg">
+            <label>Doctor / Customer Name</label>
+            <input type="text" id="f-custname" value="Dr.Kishore Kumar .l" oninput="update()">
+          </div>
+          <div class="fg">
+            <label>Address Line 1</label>
+            <input type="text" id="f-addr1" value="Plot No -1 Gopinath Nagar" oninput="update()">
+          </div>
+          <div class="fg">
+            <label>Address Line 2</label>
+            <input type="text" id="f-addr2" value="Palani Road" oninput="update()">
+          </div>
+          <div class="fg-row">
+            <div class="fg">
+              <label>City / Town</label>
+              <input type="text" id="f-city" value="Reddiyarchatram" oninput="update()">
+            </div>
+            <div class="fg">
+              <label>District / Pincode</label>
+              <input type="text" id="f-pincode" value="Dindigul-624709" oninput="update()">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order Items -->
+      <div class="fp-sec">
+        <div class="fp-sec-title">Order Items</div>
+        <div class="fp-sec-body" id="items-container"><!-- rendered by JS --></div>
+        <div style="padding:0 12px 12px;">
+          <button class="btn-add-item" onclick="addItem()">+ Add Order Item</button>
+        </div>
+      </div>
+
+      <!-- Financials -->
+      <div class="fp-sec">
+        <div class="fp-sec-title">Financials</div>
+        <div class="fp-sec-body">
+          <div class="fg">
+            <label>Taxable Amount (&#8377;)</label>
+            <input type="number" id="f-taxable" value="770000" step="0.01" min="0" oninput="updateTotals()">
+          </div>
+          <div class="fg-row">
+            <div class="fg">
+              <label>CGST / SGST 12%</label>
+              <select id="f-gst12" onchange="updateTotals()">
+                <option value="1">Apply</option>
+                <option value="0">None</option>
+              </select>
+            </div>
+            <div class="fg">
+              <label>CGST / SGST 18%</label>
+              <select id="f-gst18" onchange="updateTotals()">
+                <option value="0">None</option>
+                <option value="1">Apply</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg">
+            <label>IGST 12%</label>
+            <select id="f-igst12" onchange="updateTotals()">
+              <option value="0">None</option>
+              <option value="1">Apply</option>
+            </select>
+          </div>
+          <div style="background:#0f172a;border-radius:5px;padding:8px 10px;font-size:11px;color:#94a3b8;margin-top:2px;">
+            Grand Total: <strong id="fp-grandtotal-preview" style="color:#fbbf24;font-size:13px;">&#8377;0.00</strong>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /fp-body -->
+  </aside>
+
+  <!-- ================================================================
+       PREVIEW WRAPPER
+  ================================================================ -->
+  <div id="preview-wrapper">
+
+    <!-- ============================================================
+         PAGE 1  –  Header + address + subject + items table
+    ============================================================ -->
+    <div class="page" id="page-1">
+
+      <!-- Top banner -->
+      <div class="top-banner">
+        Laparoscope <span class="sep">&#9632;</span>
+        Colposcope <span class="sep">&#9632;</span>
+        Hysteroscope <span class="sep">&#9632;</span>
+        Fetal Monitor <span class="sep">&#9632;</span>
+        Fluid Management System
+      </div>
+
+      <!-- Header row: bullets | logo | PAN/CIN/GST -->
+      <div class="header-row">
+        <div class="header-left">
+          <ul>
+            <li><span><b>proMIS</b> – Laparoscope, Colposcope, Hysteroscope</span></li>
+            <li><span><b>ALAN</b> – Diathermy, Vessel Sealing System, APC, Saline-TUR</span></li>
+            <li><span><b>HOSPIINZ</b> – Laparoscope Instruments, VET, Morcillator</span></li>
+            <li><span>&#x2022; Fluid Management System</span></li>
+          </ul>
+        </div>
+        <div class="header-center">
+          <div class="jbs-logo-wrap">
+            <!-- JBS Logo SVG (identical to React component) -->
+            <svg width="105" height="66" viewBox="0 0 105 66" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+              <text x="1"  y="58" font-family="'Times New Roman',Times,serif" font-size="60" font-weight="bold" fill="#111111" letter-spacing="-1">J</text>
+              <text x="32" y="58" font-family="'Times New Roman',Times,serif" font-size="60" font-weight="bold" fill="#111111" letter-spacing="-1">B</text>
+              <text x="64" y="58" font-family="'Times New Roman',Times,serif" font-size="60" font-weight="bold" fill="#1d7a1d" letter-spacing="0">S</text>
+              <path d="M64,61 Q79,70 95,60" stroke="#1d7a1d" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div class="logo-mediitec-line">mediitec India Private Limited.,</div>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          PAN : AABCJ6645C<br>
+          CIN : U33112TZ2006PTC012703<br>
+          GST : 33AABCJ6645C1ZW
+        </div>
+      </div>
+
+      <!-- Document title -->
+      <div class="doc-title">Order Acceptance</div>
+
+      <!-- Ref & Date -->
+      <div class="ref-date-row">
+        <span>Ref:<span id="p-refno">JBS/OA/24-25/0155</span></span>
+        <span>Date : <span id="p-date">28/12/2024</span></span>
+      </div>
+
+      <!-- To / Address -->
+      <div class="to-section">
+        <div class="to-label">To,</div>
+        <div class="address" id="p-address">
+          Dr.Kishore Kumar .l<br>
+          Plot No -1 Gopinath Nagar<br>
+          Palani Road<br>
+          Reddiyarchatram<br>
+          Dindigul-624709
+        </div>
+      </div>
+
+      <!-- Dear / Subject / Ref lines -->
+      <div class="dear-line">Dear Doctor,</div>
+      <div class="sub-line"><b>Sub:</b> Order Acceptance</div>
+      <div class="order-ref-line">
+        <b>Order Ref No</b>&nbsp; <span id="p-orderrefno">SO-1638</span> and Dated <span id="p-orderdate">04/08/2024</span>
+      </div>
+      <div class="ref-no-line">
+        <b>Ref No :</b> Our Quotation Reference No <span id="p-quotrefno">Q/24-25/0422</span> and Dated <span id="p-quotdate">05/08/2024</span>
+      </div>
+      <div class="thank-you-line">
+        Thank you for placing the order and we will supply the following item as per terms &amp; conditions.
+      </div>
+
+      <!-- Items table -->
+      <table class="main-table">
+        <thead>
+          <tr>
+            <th>Sno</th>
+            <th>Description</th>
+            <th>Qty</th>
+          </tr>
+        </thead>
+        <tbody id="p-items-body"><!-- filled by JS --></tbody>
+      </table>
+
+      <!-- Page 1 footer -->
+      <div class="footer-address">
+        Sri Ragavendra Tower, 3rd Floor, No-34, Co-operative E-colony, Behind Kumudham Nagar, Villankurichi Road, Coimbatore &ndash; 641035<br>
+        Ph: 9443367915, 9443366752. E-mail: info@jbsmediitec.com
+      </div>
+      <div class="bottom-banner">
+        Diathermy <span class="sep">&#9632;</span>
+        Alligature <span class="sep">&#9632;</span>
+        Argon Plasma Coagulator (APC) <span class="sep">&#9632;</span>
+        Saline-TUR
+      </div>
+    </div><!-- /page-1 -->
+
+    <!-- ============================================================
+         PAGE 2  –  Header + totals + T&C + signatures
+    ============================================================ -->
+    <div class="page" id="page-2">
+
+      <!-- Top banner (repeated on page 2) -->
+      <div class="top-banner">
+        Laparoscope <span class="sep">&#9632;</span>
+        Colposcope <span class="sep">&#9632;</span>
+        Hysteroscope <span class="sep">&#9632;</span>
+        Fetal Monitor <span class="sep">&#9632;</span>
+        Fluid Management System
+      </div>
+
+      <!-- Header row (repeated on page 2) -->
+      <div class="header-row">
+        <div class="header-left">
+          <ul>
+            <li><span><b>proMIS</b> – Laparoscope, Colposcope, Hysteroscope</span></li>
+            <li><span><b>ALAN</b> – Diathermy, Vessel Sealing System, APC, Saline-TUR</span></li>
+            <li><span><b>HOSPIINZ</b> – Laparoscope Instruments, VET, Morcillator</span></li>
+            <li><span>&#x2022; Fluid Management System</span></li>
+          </ul>
+        </div>
+        <div class="header-center">
+          <div class="jbs-logo-wrap">
+            <svg width="105" height="66" viewBox="0 0 105 66" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+              <text x="1"  y="58" font-family="'Times New Roman',Times,serif" font-size="60" font-weight="bold" fill="#111111" letter-spacing="-1">J</text>
+              <text x="32" y="58" font-family="'Times New Roman',Times,serif" font-size="60" font-weight="bold" fill="#111111" letter-spacing="-1">B</text>
+              <text x="64" y="58" font-family="'Times New Roman',Times,serif" font-size="60" font-weight="bold" fill="#1d7a1d" letter-spacing="0">S</text>
+              <path d="M64,61 Q79,70 95,60" stroke="#1d7a1d" stroke-width="3.8" fill="none" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <div class="logo-mediitec-line">mediitec India Private Limited.,</div>
+            </div>
+          </div>
+        </div>
+        <div class="header-right">
+          PAN : AABCJ6645C<br>
+          CIN : U33112TZ2006PTC012703<br>
+          GST : 33AABCJ6645C1ZW
+        </div>
+      </div>
+
+      <!-- Totals table -->
+      <table class="totals-table" style="margin-top:20px;">
+        <tbody>
+          <tr>
+            <td class="lbl">Total Taxable Amount</td>
+            <td class="val" id="p-taxable">7,70,000.00</td>
+          </tr>
+          <tr>
+            <td class="lbl">GSTI 12%</td>
+            <td class="val" id="p-gst12">92,400.00</td>
+          </tr>
+          <tr>
+            <td class="lbl">GST 18%</td>
+            <td class="val" id="p-gst18">0.00</td>
+          </tr>
+          <tr>
+            <td class="lbl">IGST 12%</td>
+            <td class="val" id="p-igst12">0.00</td>
+          </tr>
+          <tr>
+            <td class="lbl">RoundOff</td>
+            <td class="val" id="p-roundoff">0.00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Grand total row -->
+      <table class="totals-table" style="margin-top:0;">
+        <tbody>
+          <tr class="grand-row">
+            <td style="border:1px solid #000;padding:5px 8px;width:8%;">Total</td>
+            <td style="border:1px solid #000;padding:5px 8px;">
+              Rupees <span id="p-amtwords">Eight Lakhs Sixty Two Thousand Four Hundred</span> only
+            </td>
+            <td style="border:1px solid #000;padding:5px 8px;text-align:right;white-space:nowrap;width:18%;">
+              Rs.&nbsp;<span id="p-grandtotal">8,62,400.00</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Terms and Conditions -->
+      <div class="terms-section">
+        <div class="terms-title">Terms and Conditions :</div>
+        <table class="terms-table">
+          <tbody>
+            <tr>
+              <td class="tlbl">Taxes</td>
+              <td>: GST 12% Tax inclusive for current sales tax structure. If any changes in this tax structure,
+                  it will be applicable as&nbsp; extra and it should be borne by the Purchaser.</td>
+            </tr>
+            <tr>
+              <td class="tlbl">Delivery</td>
+              <td>: Delivery will be made in and about 4-6 weeks after receipt of confirmed Order, to the above address.</td>
+            </tr>
+            <tr>
+              <td class="tlbl">Payment</td>
+              <td>: 100% payment received.&nbsp; Payments should be made in favour of
+                  M/s.JBS meditec India (P) Ltd.,<br>
+                  &nbsp;&nbsp;Name of the Bank - Bank of India<br>
+                  &nbsp;&nbsp;Name of Branch &amp; City - Coimbatore Main Branch ,Coimbatore<br>
+                  &nbsp;&nbsp;IFSC Code No - BKID0008200<br>
+                  &nbsp;&nbsp;Account No &ndash; 820030110000018</td>
+            </tr>
+            <tr>
+              <td class="tlbl">Warranty</td>
+              <td>: One year serviceable warranty from the date of supply/installation against any manufacturing
+                  defects. This warranty is not valid for the damage resulting from Mechanical damage like
+                  bend, breakage, accident, mishandling, negligence, exposure to excessive moisture, tampering,
+                  unauthorized repair, environmental conditions, spill of foods or liquids, fair wear and tear of the
+                  machine, internal fogging and failure to the electrical parts like bulbs etc,.
+                  Subject to Coimbatore Jurisdiction.&nbsp; Warranty for MAINT UNIT ONLY and&nbsp; does not cover for all
+                  Accessories and Consumables.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Note -->
+      <div class="note-section">
+        <span class="note-ul">Note :</span>&nbsp;&nbsp;
+        <b>(1) Goods once sold will not&nbsp; be taken back.</b><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(2) No other terms and conditions shall apply on us.
+      </div>
+
+      <!-- Confirm line -->
+      <div class="confirm-line">
+        Kindly confirm the receipt for this order acknowledgement by Mail or Letter with your seal and signature in this OA itself.
+      </div>
+
+      <!-- Signature -->
+      <div class="sig-row">
+        <div>With best regards<br>for&nbsp;&nbsp;<b>M/s.JBS Mediitec India Private Limited,</b></div>
+        <div></div>
+      </div>
+      <div class="sig-labels">
+        <div>Marketing Co-Ordinator</div>
+        <div>Customer Seal and Signature</div>
+      </div>
+
+      <!-- Page 2 footer -->
+      <div class="footer-address">
+        Sri Ragavendra Tower, 3rd Floor, No-34, Co-operative E-colony, Behind Kumudham Nagar, Villankurichi Road, Coimbatore &ndash; 641035<br>
+        Ph: 9443367915, 9443366752. E-mail: info@jbsmediitec.com
+      </div>
+      <div class="bottom-banner">
+        Diathermy <span class="sep">&#9632;</span>
+        Alligature <span class="sep">&#9632;</span>
+        Argon Plasma Coagulator (APC) <span class="sep">&#9632;</span>
+        Saline-TUR
+      </div>
+    </div><!-- /page-2 -->
+
+  </div><!-- /preview-wrapper -->
+</div><!-- /app -->
+
+<!-- ================================================================
+     JAVASCRIPT – Live data binding
+================================================================ -->
+<script>
+"use strict";
+
+/* ----------------------------------------------------------------
+   Default item data (matches the sample PDF)
+---------------------------------------------------------------- */
+var items = [
+  {
+    name: "Alan - Advanced Model Surgical Diathermy With Vessel Sealing Unit M+Ligator Elsy 360 M+",
+    qty: "1No",
+    accessories: [
+      "Power Cord -1no",
+      "Wireless Three Pedal Footswitch With Connector-1no",
+      "Silicon Single Pad Patient Plate-1no",
+      "Cable For Silicon Single Pad Patient Plate-1no",
+      "Dual Pad Silicon Patient Plate-1no",
+      "Cable For Dual Patient Plate-1no",
+      "Bayonet Bipolar Forceps-1no",
+      "Bipolar Cable-1no",
+      "Monopolar Hand Switch Pencil Reusable-1no",
+      "Monopolar Foot Pencilwith Electrodes-1no",
+      "Lap.Vessel Seal Dissect Instrument 5mm With Cable Alan-1no",
+      "Vessel Seal Open Surgery Forcep with cable - 1No"
+    ]
+  },
+  {
+    name: "Alan - Diathermy Elsy 360 L+",
+    qty: "2Nos",
+    accessories: [
+      "Power Cord -1no",
+      "Three Pedal Footswitch With Connector-1no",
+      "Silicon Single Pad Patient Plate-1no",
+      "Cable For Silicon Single Pad Patient Plate-1no",
+      "Dual Pad Silicon Patient Plate-1no",
+      "Cable For Dual Patient Plate-1no",
+      "Bayonet Bipolar Forceps-1no",
+      "Bipolar Cable-1no",
+      "Monopolar Hand Switch Pencil Reusable-1no",
+      "Monopolar Foot Pencilwith Electrodes-1no"
+    ]
+  }
+];
+
+/* ----------------------------------------------------------------
+   Boot
+---------------------------------------------------------------- */
+window.addEventListener("DOMContentLoaded", function () {
+  renderFormItems();
+  update();
+});
+
+/* ----------------------------------------------------------------
+   Form items rendering
+---------------------------------------------------------------- */
+function renderFormItems() {
+  var container = document.getElementById("items-container");
+  container.innerHTML = "";
+
+  items.forEach(function (item, idx) {
+    var card = document.createElement("div");
+    card.className = "item-card";
+
+    var accRows = item.accessories.map(function (acc, ai) {
+      return (
+        '<div class="acc-row">' +
+          '<input type="text" value="' + escAttr(acc) + '" ' +
+                 'oninput="updateAcc(' + idx + ',' + ai + ',this.value)">' +
+          '<button class="btn-danger" onclick="removeAcc(' + idx + ',' + ai + ')">&#10005;</button>' +
+        '</div>'
+      );
+    }).join("");
+
+    card.innerHTML =
+      '<div class="item-card-hdr">' +
+        '<span>Item ' + (idx + 1) + '</span>' +
+        '<button class="btn-danger" onclick="removeItem(' + idx + ')">&#128465; Remove</button>' +
+      '</div>' +
+      '<div class="fg" style="margin-bottom:6px;">' +
+        '<label>Description</label>' +
+        '<textarea oninput="updateItemField(' + idx + ',\'name\',this.value)">' + escText(item.name) + '</textarea>' +
+      '</div>' +
+      '<div class="fg" style="margin-bottom:8px;">' +
+        '<label>Quantity (e.g. 1No, 2Nos)</label>' +
+        '<input type="text" value="' + escAttr(item.qty) + '" ' +
+               'oninput="updateItemField(' + idx + ',\'qty\',this.value)">' +
+      '</div>' +
+      '<label style="font-size:10px;color:#94a3b8;font-weight:700;text-transform:uppercase;' +
+             'letter-spacing:.4px;display:block;margin-bottom:4px;">Accessories</label>' +
+      '<div id="acc-form-' + idx + '">' + accRows + '</div>' +
+      '<button class="btn-green-sm" onclick="addAcc(' + idx + ')">+ Add Accessory</button>';
+
+    container.appendChild(card);
+  });
+}
+
+/* ----------------------------------------------------------------
+   Mutation helpers
+---------------------------------------------------------------- */
+function addItem() {
+  items.push({ name: "", qty: "1No", accessories: [] });
+  renderFormItems();
+  renderPreviewItems();
+}
+
+function removeItem(idx) {
+  items.splice(idx, 1);
+  renderFormItems();
+  renderPreviewItems();
+}
+
+function updateItemField(idx, field, val) {
+  items[idx][field] = val;
+  renderPreviewItems();
+}
+
+function addAcc(idx) {
+  items[idx].accessories.push("");
+  renderFormItems();
+  renderPreviewItems();
+}
+
+function removeAcc(idx, ai) {
+  items[idx].accessories.splice(ai, 1);
+  renderFormItems();
+  renderPreviewItems();
+}
+
+function updateAcc(idx, ai, val) {
+  items[idx].accessories[ai] = val;
+  renderPreviewItems();
+}
+
+/* ----------------------------------------------------------------
+   Main update  (bound to all scalar inputs)
+---------------------------------------------------------------- */
+function update() {
+  setText("p-refno",     getValue("f-refno"));
+  setText("p-date",      fmtDate(getValue("f-date")));
+  setText("p-orderrefno",getValue("f-orderrefno"));
+  setText("p-orderdate", fmtDate(getValue("f-orderdate")));
+  setText("p-quotrefno", getValue("f-quotrefno"));
+  setText("p-quotdate",  fmtDate(getValue("f-quotdate")));
+
+  /* Address block – filter empty lines */
+  var lines = [
+    getValue("f-custname"),
+    getValue("f-addr1"),
+    getValue("f-addr2"),
+    getValue("f-city"),
+    getValue("f-pincode")
+  ].filter(function (l) { return l.trim() !== ""; });
+
+  document.getElementById("p-address").innerHTML =
+    lines.map(htmlEsc).join("<br>");
+
+  renderPreviewItems();
+  updateTotals();
+}
+
+/* ----------------------------------------------------------------
+   Render preview items table body
+---------------------------------------------------------------- */
+function renderPreviewItems() {
+  var tbody = document.getElementById("p-items-body");
+  tbody.innerHTML = "";
+
+  items.forEach(function (item, idx) {
+    var tr = document.createElement("tr");
+
+    var descHtml = '<span class="item-main">' + htmlEsc(item.name) + "</span>";
+    if (item.accessories && item.accessories.length > 0) {
+      descHtml += '<span class="acc-heading">CONSUMABLE ACCESSORIES</span>';
+      descHtml += '<div class="acc-list">';
+      item.accessories.forEach(function (acc) {
+        descHtml += "<div>=>" + htmlEsc(acc) + "</div>";
+      });
+      descHtml += "</div>";
+    }
+
+    tr.innerHTML =
+      "<td>" + (idx + 1) + "</td>" +
+      "<td>" + descHtml + "</td>" +
+      "<td>" + htmlEsc(item.qty) + "</td>";
+
+    tbody.appendChild(tr);
+  });
+}
+
+/* ----------------------------------------------------------------
+   Totals calculation
+---------------------------------------------------------------- */
+function updateTotals() {
+  var taxable = parseFloat(getValue("f-taxable")) || 0;
+  var gst12   = parseInt(getValue("f-gst12"))  ? taxable * 0.12 : 0;
+  var gst18   = parseInt(getValue("f-gst18"))  ? taxable * 0.18 : 0;
+  var igst12  = parseInt(getValue("f-igst12")) ? taxable * 0.12 : 0;
+
+  var raw     = taxable + gst12 + gst18 + igst12;
+  var rounded = Math.round(raw);
+  var roundOff = parseFloat((rounded - raw).toFixed(2));
+
+  setText("p-taxable",  fmtNum(taxable));
+  setText("p-gst12",    fmtNum(gst12));
+  setText("p-gst18",    fmtNum(gst18));
+  setText("p-igst12",   fmtNum(igst12));
+  setText("p-roundoff", fmtNum(roundOff));
+  setText("p-grandtotal", fmtNum(rounded));
+  setText("p-amtwords",   numToWords(rounded));
+
+  /* Mini indicator in form panel */
+  var fpEl = document.getElementById("fp-grandtotal-preview");
+  if (fpEl) fpEl.textContent = "\u20B9" + fmtNum(rounded);
+}
+
+/* ----------------------------------------------------------------
+   Utility functions
+---------------------------------------------------------------- */
+function getValue(id) {
+  var el = document.getElementById(id);
+  return el ? el.value : "";
+}
+
+function setText(id, val) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = val;
+}
+
+function htmlEsc(str) {
+  var div = document.createElement("div");
+  div.textContent = String(str);
+  return div.innerHTML;
+}
+
+function escAttr(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function escText(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function fmtDate(dateStr) {
+  if (!dateStr) return "";
+  var parts = dateStr.split("-");
+  if (parts.length !== 3) return dateStr;
+  return parts[2] + "/" + parts[1] + "/" + parts[0];
+}
+
+function fmtNum(n) {
+  return Number(n).toLocaleString("en-IN", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  });
+}
+
+/* ----------------------------------------------------------------
+   Number to Indian Words
+   e.g. 862400 → "Eight Lakhs Sixty Two Thousand Four Hundred"
+---------------------------------------------------------------- */
+function numToWords(amount) {
+  amount = Math.round(amount);
+  if (amount === 0) return "Zero";
+
+  var ones = [
+    "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",
+    "Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen",
+    "Seventeen", "Eighteen", "Nineteen"
+  ];
+  var tensArr = [
+    "", "", "Twenty", "Thirty", "Forty", "Fifty",
+    "Sixty", "Seventy", "Eighty", "Ninety"
+  ];
+
+  function twoDigits(n) {
+    if (n === 0) return "";
+    if (n < 20) return ones[n];
+    return tensArr[Math.floor(n / 10)] + (n % 10 ? " " + ones[n % 10] : "");
+  }
+
+  function threeDigits(n) {
+    if (n === 0) return "";
+    if (n < 100) return twoDigits(n);
+    return ones[Math.floor(n / 100)] + " Hundred" +
+           (n % 100 ? " " + twoDigits(n % 100) : "");
+  }
+
+  var result = "";
+
+  var crore = Math.floor(amount / 10000000);
+  if (crore > 0) {
+    result += threeDigits(crore) + " Crore" + (crore > 1 ? "s" : "") + " ";
+    amount %= 10000000;
+  }
+
+  var lakh = Math.floor(amount / 100000);
+  if (lakh > 0) {
+    result += twoDigits(lakh) + " Lakh" + (lakh > 1 ? "s" : "") + " ";
+    amount %= 100000;
+  }
+
+  var thousand = Math.floor(amount / 1000);
+  if (thousand > 0) {
+    result += threeDigits(thousand) + " Thousand ";
+    amount %= 1000;
+  }
+
+  if (amount > 0) {
+    result += threeDigits(amount);
+  }
+
+  return result.trim();
+}
+</script>
+</body>
+</html>
