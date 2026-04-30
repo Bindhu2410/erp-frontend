@@ -50,7 +50,7 @@ const InterestedProductForm: React.FC<InterestedProductFormProps> = ({
     setIsLoadingProducts(true);
     try {
       const response = await axios.get(
-        "http://localhost:5104/api/ItemDropdown/item-list"
+        "${process.env.REACT_APP_API_BASE_URL}/ItemDropdown/item-list"
       );
 
       setProductOptions(response.data);
@@ -67,7 +67,7 @@ const InterestedProductForm: React.FC<InterestedProductFormProps> = ({
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesItems/by-stage/lead/${stageid}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesItems/by-stage/lead/${stageid}`
       );
 
       const mapped = response.data.map((item: any) => ({
@@ -140,13 +140,13 @@ const InterestedProductForm: React.FC<InterestedProductFormProps> = ({
       };
       if (product.id.startsWith("tmp-")) {
         // New: create
-        await axios.post("http://localhost:5104/api/SalesItems", reqBody);
+        await axios.post("${process.env.REACT_APP_API_BASE_URL}/SalesItems", reqBody);
         await fetchSalesItems();
         toast.success("Product saved successfully");
       } else {
         // Existing: update
         await axios.put(
-          `http://localhost:5104/api/SalesItems/${product.id}`,
+          `${process.env.REACT_APP_API_BASE_URL}/SalesItems/${product.id}`,
           reqBody
         );
         await fetchSalesItems();

@@ -163,7 +163,7 @@ const CallActivities: React.FC<{
     setLoading(true);
     try {
       await axios.delete(
-        `http://localhost:5104/api/SalesActivityCall/${deleteId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall/${deleteId}`
       );
       await fetchCalls();
     } catch (error) {
@@ -196,7 +196,7 @@ const CallActivities: React.FC<{
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesActivityCall/stage/${stage}/${stageItemId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall/stage/${stage}/${stageItemId}`
       );
 
       const formattedData = (response.data || []).map((item: any) => ({

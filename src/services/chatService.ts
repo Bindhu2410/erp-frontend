@@ -156,7 +156,7 @@ const chatApi = {
     formData.append("file", file);
 
     const token = localStorage.getItem("access_token") || localStorage.getItem("token");
-    const baseUrl = process.env.REACT_APP_API_BASE_URL || "http://localhost:5104/api/";
+    const baseUrl = process.env.REACT_APP_API_BASE_URL || "${process.env.REACT_APP_API_BASE_URL}/";
 
     const response = await fetch(`${baseUrl}${BASE}/upload`, {
       method: "POST",

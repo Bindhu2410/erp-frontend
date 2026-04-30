@@ -64,10 +64,10 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({
     try {
       const [countriesRes, statesRes, territoriesRes, districtsRes] =
         await Promise.all([
-          axios.get("http://localhost:5104/api/SalesCountry"),
-          axios.get("http://localhost:5104/api/SalesState"),
-          axios.get("http://localhost:5104/api/SalesTerritory"),
-          axios.get("http://localhost:5104/api/SalesDistrict"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesCountry"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesState"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesTerritory"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesDistrict"),
         ]);
 
       setCountries(countriesRes.data);
@@ -90,7 +90,7 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({
     if (value.length >= 3) {
       try {
         const response = await axios.get(
-          `http://localhost:5104/api/SalesPincode`
+          `${process.env.REACT_APP_API_BASE_URL}/SalesPincode`
         );
         const filteredPincodes = response.data
           .filter((p: any) => p.code.startsWith(value))
@@ -121,7 +121,7 @@ const LocationSelector: React.FC<LocationSelectorProps> = ({
             setSelectedCountry(country || null);
             if (country) {
               const statesRes = await axios.get(
-                `http://localhost:5104/api/SalesState/country/${country.id}`
+                `${process.env.REACT_APP_API_BASE_URL}/SalesState/country/${country.id}`
               );
               setStates(statesRes.data);
             }

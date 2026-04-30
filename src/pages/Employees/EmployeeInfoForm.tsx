@@ -1169,8 +1169,8 @@ const EmployeeInfoForm: React.FC<EmployeeProps> = ({
     if (educationFiles.length === 0) return filePaths;
     const empId = employeeId || formData.employeeId;
     const uploadUrl = empId
-      ? `http://localhost:5104/api/Storage/upload/EmployeeEducation?employeeId=${encodeURIComponent(empId)}`
-      : `http://localhost:5104/api/Storage/upload/EmployeeEducation`;
+      ? `${process.env.REACT_APP_API_BASE_URL}/Storage/upload/EmployeeEducation?employeeId=${encodeURIComponent(empId)}`
+      : `${process.env.REACT_APP_API_BASE_URL}/Storage/upload/EmployeeEducation`;
     for (const file of educationFiles) {
       try {
         const uploadFormData = new FormData();

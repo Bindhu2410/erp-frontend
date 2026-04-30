@@ -1,7 +1,7 @@
 import { IBankAccountCreate, IBankAccountResponse, IBankAccountListResponse, IBankAccountDetailResponse } from '../interfaces/bankaccount.types';
 
 // Ensure the API_BASE_URL doesn't have a trailing slash to avoid double slashes in URLs
-const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || 'http://localhost:5104/api').replace(/\/+$/, '');
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || '${process.env.REACT_APP_API_BASE_URL}').replace(/\/+$/, '');
 
 export interface IBankAccountService {
   createBankAccount(bankAccountData: IBankAccountCreate): Promise<IBankAccountDetailResponse>;

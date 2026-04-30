@@ -6,9 +6,9 @@ type ApiResponse<T = any> = {
 type ApiService = "main" | "opportunities";
 
 const URLS = {
-  main: process.env.REACT_APP_API_BASE_URL || "http://localhost:5104/api/",
+  main: process.env.REACT_APP_API_BASE_URL || "${process.env.REACT_APP_API_BASE_URL}/",
   opportunities:
-    process.env.REACT_APP_API_BASE_URL || "http://localhost:5104/api/",
+    process.env.REACT_APP_API_BASE_URL || "${process.env.REACT_APP_API_BASE_URL}/",
 };
 
 const api = {

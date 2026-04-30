@@ -185,7 +185,7 @@ const SalesEntityTable: React.FC<SalesEntityTableProps> = ({
 
     try {
       const response = await axios.get(
-        "http://localhost:5104/api/BillOfMaterial"
+        "${process.env.REACT_APP_API_BASE_URL}/BillOfMaterial"
       );
       setBomOptions(response.data);
       console.log("Loaded BOMs:", response.data);
@@ -205,7 +205,7 @@ const SalesEntityTable: React.FC<SalesEntityTableProps> = ({
       // Try to fetch from real API
       try {
         const response = await axios.get(
-          `http://localhost:5104/api/BomDropdown/bom-details/${bomId}`
+          `${process.env.REACT_APP_API_BASE_URL}/BomDropdown/bom-details/${bomId}`
         );
         return response.data;
       } catch (apiError) {
@@ -484,7 +484,7 @@ const SalesEntityTable: React.FC<SalesEntityTableProps> = ({
       console.log("Fetching products with payload:", payload);
 
       const response = await axios.post(
-        "http://localhost:5104/api/ProductDropdown/product-list",
+        "${process.env.REACT_APP_API_BASE_URL}/ProductDropdown/product-list",
         payload
       );
       const data = response.data;

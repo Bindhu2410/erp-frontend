@@ -30,7 +30,7 @@ const LeadActivities: React.FC<{ stage?: string; stageItemId?: string }> = ({
 
     try {
       const response = await axios.get(
-        `http://localhost:5104/${endpoint}/${stage}/${stageItemId}`
+        `process.env.REACT_APP_API_BASE_URL/${endpoint}/${stage}/${stageItemId}`
       );
       return response.data?.length;
     } catch (error) {

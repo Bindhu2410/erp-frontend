@@ -470,7 +470,7 @@ const CallForm: React.FC<CallFormProps> = ({
         };
 
         const updateRes = await fetch(
-          `http://localhost:5104/api/SalesActivityCall/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall/${id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -484,7 +484,7 @@ const CallForm: React.FC<CallFormProps> = ({
         delete (followUpPayload as any).id;
 
         const createRes = await fetch(
-          "http://localhost:5104/api/SalesActivityCall",
+          "${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -501,8 +501,8 @@ const CallForm: React.FC<CallFormProps> = ({
       } else {
         // Normal Create or Update
         const url = id
-          ? `http://localhost:5104/api/SalesActivityCall/${id}`
-          : `http://localhost:5104/api/SalesActivityCall`;
+          ? `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall/${id}`
+          : `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall`;
 
         const apiData = getApiData(false);
         if (id) {
@@ -540,7 +540,7 @@ const CallForm: React.FC<CallFormProps> = ({
 
       try {
         const response = await fetch(
-          `http://localhost:5104/api/SalesActivityCall/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall/${id}`,
         );
         if (!response.ok) throw new Error("Failed to fetch call");
 
@@ -696,7 +696,7 @@ const CallForm: React.FC<CallFormProps> = ({
               ...buildCallPayload({ callStatus: "completed" }),
               id: Number(id),
             };
-            await fetch(`http://localhost:5104/api/SalesActivityCall/${id}`, {
+            await fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall/${id}`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(completedPayload),
@@ -708,7 +708,7 @@ const CallForm: React.FC<CallFormProps> = ({
             callDate: newCallDate,
           });
           delete (newPayload as any).id;
-          const createRes = await fetch("http://localhost:5104/api/SalesActivityCall", {
+          const createRes = await fetch("${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPayload),

@@ -797,7 +797,7 @@ export default function PurchaseOrderViewPage() {
     const fetchOrderSummary = async () => {
       try {
         const response = await axios.post(
-          "http://localhost:5104/api/OrderProcessing/summary/message",
+          "${process.env.REACT_APP_API_BASE_URL}/OrderProcessing/summary/message",
           `"${purchaseOrder?.poId}"`,
           {
             headers: {

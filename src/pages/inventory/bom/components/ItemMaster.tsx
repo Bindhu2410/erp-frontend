@@ -1110,7 +1110,7 @@ function ItemMaster({ editItemId, onSaved, readOnly = false }: ItemMasterProps) 
           dateCreated: new Date().toISOString(),
         };
 
-        await api.post("http://localhost:5104/api/QcTemplates", payload);
+        await api.post("${process.env.REACT_APP_API_BASE_URL}/QcTemplates", payload);
       } catch (err) {
         console.warn("Failed to post selected QC template:", err);
       }

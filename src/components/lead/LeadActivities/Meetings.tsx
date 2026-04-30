@@ -73,7 +73,7 @@ const Meetings: React.FC<{
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:5104/api/SalesActivityMeeting/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/${id}`
       );
 
       console.log(response.data, "api response");
@@ -191,7 +191,7 @@ const Meetings: React.FC<{
     const accessToken = localStorage.getItem("access_token");
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesActivityMeeting/stage/${stage}/${stageItemId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/stage/${stage}/${stageItemId}`
       );
 
       const formattedData = (response.data || []).map((item: any) => ({

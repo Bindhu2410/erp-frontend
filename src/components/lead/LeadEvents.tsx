@@ -102,7 +102,7 @@ const LeadEvents: React.FC<{
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:5104/api/SalesActivityEvent/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityEvent/${id}`
       );
       console.log(response.data, "api response");
       setEvents(response.data || []);
@@ -186,7 +186,7 @@ const LeadEvents: React.FC<{
     const accessToken = localStorage.getItem("access_token");
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesActivityEvent/stage/${stage}/${stageItemId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityEvent/stage/${stage}/${stageItemId}`
       );
 
       console.log(response.data, "Event response");

@@ -83,7 +83,7 @@ const SalesOrderForm: React.FC<SalesOrderFormProps> = ({
       };
 
       const isEdit = Boolean(id);
-      const endpoint = `http://localhost:5104/api/SalesOrder${
+      const endpoint = `${process.env.REACT_APP_API_BASE_URL}/SalesOrder${
         isEdit ? `/${id}` : ""
       }`;
       const method = isEdit ? "PUT" : "POST";

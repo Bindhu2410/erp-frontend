@@ -68,7 +68,7 @@ const OpportunityForm: React.FC<OppFormProps> = ({
     const fetchProductOptions = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5104/api/ProductDropdown/product-list"
+          "${process.env.REACT_APP_API_BASE_URL}/ProductDropdown/product-list"
         );
         if (!res.ok) throw new Error("Failed to fetch product options");
         const data = await res.json();
@@ -210,7 +210,7 @@ const OpportunityForm: React.FC<OppFormProps> = ({
       if (!id) return;
       try {
         const res = await fetch(
-          `http://localhost:5104/api/SalesOpportunity/with-items/by-id/${id}`
+          `${process.env.REACT_APP_API_BASE_URL}/SalesOpportunity/with-items/by-id/${id}`
         );
         if (!res.ok) throw new Error("Failed to fetch opportunity with items");
         const data = await res.json();

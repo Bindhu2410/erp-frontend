@@ -172,7 +172,7 @@ const DeliveryList: React.FC = () => {
         OrderDirection: sortOrder.toUpperCase() as "ASC" | "DESC",
       };
 
-      const response = await fetch("http://localhost:5104/api/Delivery/grid", {
+      const response = await fetch("${process.env.REACT_APP_API_BASE_URL}/Delivery/grid", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -275,7 +275,7 @@ const DeliveryList: React.FC = () => {
   const handleDelete = async (delivery: Delivery) => {
     try {
       const response = await fetch(
-        `http://localhost:5104/api/Delivery/${delivery.id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/Delivery/${delivery.id}`,
         {
           method: "DELETE",
         },

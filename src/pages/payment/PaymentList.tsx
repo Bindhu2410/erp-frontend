@@ -86,7 +86,7 @@ const PaymentList: React.FC = () => {
         OrderDirection: "DESC",
       };
       const res = await fetch(
-        "http://localhost:5104/api/Payments/payment-grid/search",
+        "${process.env.REACT_APP_API_BASE_URL}/Payments/payment-grid/search",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

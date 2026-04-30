@@ -48,7 +48,7 @@ const MakeMaster: React.FC = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch('http://localhost:5104/api/Make');
+      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Make');
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -128,13 +128,13 @@ const MakeMaster: React.FC = () => {
 
       let response;
       if (modalMode === 'create') {
-        response = await fetch('http://localhost:5104/api/Make', {
+        response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Make', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
         });
       } else {
-        response = await fetch(`http://localhost:5104/api/Make/${formData.id}`, {
+        response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Make/${formData.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
@@ -231,7 +231,7 @@ const MakeMaster: React.FC = () => {
           Swal.showLoading();
 
           try {
-            const response = await fetch(`http://localhost:5104/api/Make/${make.id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Make/${make.id}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' }
             });

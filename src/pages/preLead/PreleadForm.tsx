@@ -47,7 +47,7 @@ const PreLeadForm: React.FC<PreLeadFormProps> = ({
       };
 
       const isEdit = Boolean(id);
-      const endpoint = `http://localhost:5104/api/PreLead${
+      const endpoint = `${process.env.REACT_APP_API_BASE_URL}/PreLead${
         isEdit ? `/${id}` : ""
       }`;
       const method = isEdit ? "PUT" : "POST";

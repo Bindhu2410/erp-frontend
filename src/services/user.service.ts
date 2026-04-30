@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5104/api/';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '${process.env.REACT_APP_API_BASE_URL}/';
 
 // Attach token to every axios request
 axios.interceptors.request.use((config) => {

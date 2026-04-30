@@ -239,7 +239,7 @@ const InvoiceList: React.FC = () => {
       };
 
       const response = await fetch(
-        "http://localhost:5104/api/InvoiceGrid/search",
+        "${process.env.REACT_APP_API_BASE_URL}/InvoiceGrid/search",
         {
           method: "POST",
           headers: {

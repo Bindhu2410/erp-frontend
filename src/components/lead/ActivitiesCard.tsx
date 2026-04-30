@@ -160,7 +160,7 @@ const ActivitiesCard: React.FC<{
     const accessToken = localStorage.getItem("access_token");
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesActivityTask/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask/${id}`
       );
 
       console.log(response.data, "api response");
@@ -211,7 +211,7 @@ const ActivitiesCard: React.FC<{
     const accessToken = localStorage.getItem("access_token");
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesActivityTask/stage/${stage}/${stageItemId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask/stage/${stage}/${stageItemId}`
       );
       setTaskData(response.data);
       onLengthChange && onLengthChange(response.data.length || 0);

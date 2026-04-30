@@ -82,7 +82,7 @@ const Addresses: React.FC<AddressesProps> = ({
     console.log("Deleting address with ID:", id?.id);
     try {
       const response = await fetch(
-        `http://localhost:5104/api/SalesAddress/${id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/SalesAddress/${id}`,
         {
           method: "DELETE",
         }

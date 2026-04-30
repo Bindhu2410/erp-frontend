@@ -45,7 +45,7 @@ const SummaryTimeline: React.FC<{ stageItemId: string }> = ({
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesSummary/stage/${stageItemId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesSummary/stage/${stageItemId}`
       );
       const data = response.data || [];
       setAllSummary(data);

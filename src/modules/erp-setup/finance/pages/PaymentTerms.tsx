@@ -39,7 +39,7 @@ const PaymentTerms: React.FC = () => {
     const fetchTerms = async () => {
         setLoading(true);
         try {
-            const res = await fetch('http://localhost:5104/api/CsPaymentTerm/all');
+            const res = await fetch('${process.env.REACT_APP_API_BASE_URL}/CsPaymentTerm/all');
             const data = await res.json();
             setTerms(data.data || []);
         } catch {
@@ -79,7 +79,7 @@ const PaymentTerms: React.FC = () => {
         if (!termId) return;
         setLoading(true);
         try {
-            await fetch(`http://localhost:5104/api/CsPaymentTerm/${termId}`, { method: 'DELETE' });
+            await fetch(`${process.env.REACT_APP_API_BASE_URL}/CsPaymentTerm/${termId}`, { method: 'DELETE' });
             setToastVariant('success');
             setToastMessage('Payment term deleted successfully');
             setShowToast(true);
@@ -107,7 +107,7 @@ const PaymentTerms: React.FC = () => {
             TotalRecords: String(currentTerm.totalRecords ?? 0)
         });
         try {
-            await fetch(`http://localhost:5104/api/CsPaymentTerm?${params.toString()}`, { method: 'POST' });
+            await fetch(`${process.env.REACT_APP_API_BASE_URL}/CsPaymentTerm?${params.toString()}`, { method: 'POST' });
             setShowModal(false);
             setToastVariant('success');
             setToastMessage('Payment term created successfully');

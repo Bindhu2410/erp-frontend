@@ -131,7 +131,7 @@ const GmailConfig: React.FC = () => {
           <h4 className="text-blue-800 font-semibold mb-2">Important Instructions</h4>
           <ul className="text-sm text-blue-700 space-y-2 list-disc pl-5">
             <li>Ensure the Gmail App credentials (ClientId, ClientSecret) are configured in the backend <code>appsettings.json</code>.</li>
-            <li>Add <code>http://localhost:5104/api/email/callback</code> (or your actual redirect URI) to your Google Cloud Project.</li>
+            <li>Add <code>${process.env.REACT_APP_API_BASE_URL}/email/callback</code> (or your actual redirect URI) to your Google Cloud Project.</li>
             <li>Click "Setup DB" first if you haven't initialized the database tables.</li>
           </ul>
         </div>

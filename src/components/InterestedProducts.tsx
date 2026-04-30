@@ -29,7 +29,7 @@ const InterestedProducts: React.FC<InterestedProductsProps> = ({
   const fetchProducts = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesItems/by-stage/${stage}/${stageid}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesItems/by-stage/${stage}/${stageid}`
       );
       // Map API response to InterestedProduct interface
       const mapped = response.data.map((item: any) => ({

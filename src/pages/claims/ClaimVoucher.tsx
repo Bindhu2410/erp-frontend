@@ -57,7 +57,7 @@ const ClaimVoucher: React.FC<ClaimVoucherProps> = ({ onSaveSuccess }) => {
   React.useEffect(() => {
     const fetchSalesUsers = async () => {
       try {
-        const resp = await fetch('http://localhost:5104/api/UmUserRole/user-roles');
+        const resp = await fetch('${process.env.REACT_APP_API_BASE_URL}/UmUserRole/user-roles');
         const json = await resp.json();
         if (json && Array.isArray(json.data)) {
           const sales = json.data

@@ -84,7 +84,7 @@ const BusinessChallenge: React.FC<BusinessChallengeProps> = ({
   const handleDeleteClick =async (record: BusinessChallengeData,index: number) => {
      const id=record.id;
      try {
-     const response = await fetch(`http://localhost:5104/api/SalesLeadsBusinessChallenge/${id}`, {
+     const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesLeadsBusinessChallenge/${id}`, {
        method: "DELETE",
      });
      if (!response.ok) throw new Error("Failed to delete address");

@@ -25,7 +25,7 @@ const StatusDropdown: React.FC<StatusDropdownProps> = ({
     const fetchAssignedToOptions = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5104/api/SalesLead/assigned-to-dropdown?userId=${user?.userId}`
+          `${process.env.REACT_APP_API_BASE_URL}/SalesLead/assigned-to-dropdown?userId=${user?.userId}`
         );
         const data = await response.json();
         setAssignedToOptions(data || []);

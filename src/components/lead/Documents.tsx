@@ -88,7 +88,7 @@ const LeadAttachements: React.FC<{ stageItemId: string; stage: string }> = ({
 
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesDocument/stage/${stage}/${stageItemId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesDocument/stage/${stage}/${stageItemId}`
       );
       const fetchedRows = response.data || [];
       setLeadAttachements(fetchedRows);
@@ -129,7 +129,7 @@ const LeadAttachements: React.FC<{ stageItemId: string; stage: string }> = ({
     const accessToken = localStorage.getItem("access_token");
     try {
       const response = await axios.delete(
-        `http://localhost:5104/api/SalesDocument/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesDocument/${id}`
       );
       setISModelOpen(false);
     } catch (error) {

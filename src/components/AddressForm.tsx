@@ -70,7 +70,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
           if (field.URL === "SalesLocation/search") {
             try {
               const response = await axios.post(
-                "http://localhost:5104/api/SalesLocation/search"
+                "${process.env.REACT_APP_API_BASE_URL}/SalesLocation/search"
               );
               const data: LocationData[] = response.data;
               setLocationOptions(data);
@@ -208,7 +208,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
     setIsSearchingPincode(true);
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/GeographicalDivision/hierarchy/pincode/${pincode}`
+        `${process.env.REACT_APP_API_BASE_URL}/GeographicalDivision/hierarchy/pincode/${pincode}`
       );
       const hierarchyData: HierarchyData[] = response.data;
 
@@ -548,8 +548,8 @@ const AddressForm: React.FC<AddressFormProps> = ({
 
       const isEdit = Boolean(dataToSend.id);
       const url = isEdit
-        ? `http://localhost:5104/api/SalesAddress/${dataToSend.id}`
-        : "http://localhost:5104/api/SalesAddress";
+        ? `${process.env.REACT_APP_API_BASE_URL}/SalesAddress/${dataToSend.id}`
+        : "${process.env.REACT_APP_API_BASE_URL}/SalesAddress";
 
       const method = isEdit ? "PUT" : "POST";
 

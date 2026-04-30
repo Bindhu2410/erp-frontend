@@ -19,7 +19,7 @@ const ExternalCommentView: React.FC<ExternalCommentProps> = ({
     const fetchComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5104/api/SalesExternalComment/stage/${stage}/${stageItemId}`
+          `${process.env.REACT_APP_API_BASE_URL}/SalesExternalComment/stage/${stage}/${stageItemId}`
         );
         setComments(response.data);
       } catch (err) {

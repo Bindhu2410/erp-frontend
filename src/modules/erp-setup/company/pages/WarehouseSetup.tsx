@@ -109,7 +109,7 @@ const WarehouseSetup: React.FC = () => {
     if (selectedCompanyId === "") return;
     const fetchBranches = async () => {
       try {
-        const res = await fetch(`http://localhost:5104/api/CsBranch/company/${selectedCompanyId}?includeInactive=true`);
+        const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/CsBranch/company/${selectedCompanyId}?includeInactive=true`);
         const data = await res.json();
         setBranches((data.data || []).map((b: any) => ({
           branchId: b.branchId,

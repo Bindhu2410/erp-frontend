@@ -1,6 +1,6 @@
 import { ITdsRateFormData, ITdsRateApiResponse, ITdsRateApiRequest, ITdsRateApiResponseItem } from "../interfaces/tds.types";
 
-const BASE_URL = "http://localhost:5104/api";
+const BASE_URL = "${process.env.REACT_APP_API_BASE_URL}";
 
 export const tdsService = {
     getAll: async (companyId: number) => {

@@ -32,7 +32,7 @@ const BusinessChallengesForm: React.FC<BusinessChallengeFormProps> = ({
         for (const field of section.fields) {
           if (field.type === 'multiselect' && 'URL' in field && field.URL) {
             try {
-              const response = await axios.get<ApiProductItem[]>(`http://localhost:5104/api/${field.URL}`);
+              const response = await axios.get<ApiProductItem[]>(`${process.env.REACT_APP_API_BASE_URL}/${field.URL}`);
               
               const uniqueProductNames = Array.from(
                 new Set(response.data.map((item) => item.productName))
@@ -103,8 +103,8 @@ const handleSave = async () => {
 
     const isEdit = Boolean(processedData.id);
     const url = isEdit
-      ? `http://localhost:5104/api/SalesLeadsBusinessChallenge/${processedData.id}`
-      : 'http://localhost:5104/api/SalesLeadsBusinessChallenge';
+      ? `${process.env.REACT_APP_API_BASE_URL}/SalesLeadsBusinessChallenge/${processedData.id}`
+      : '${process.env.REACT_APP_API_BASE_URL}/SalesLeadsBusinessChallenge';
     const method = isEdit ? 'PUT' : 'POST';
 
     const response = await fetch(url, {

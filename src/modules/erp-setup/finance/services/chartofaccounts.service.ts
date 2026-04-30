@@ -5,7 +5,7 @@ import {
     IChartOfAccountDetailResponse 
 } from '../interfaces/chartofaccounts.types';
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:5104/api';
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || '${process.env.REACT_APP_API_BASE_URL}';
 
 export const chartOfAccountsService = {
     async createAccount(accountData: IChartOfAccountCreate): Promise<IChartOfAccountDetailResponse> {

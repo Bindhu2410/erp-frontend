@@ -56,7 +56,7 @@ const LeadContactEdit: React.FC<contactProps> = ({ data, leadId, cusId }) => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesContact/lead/${leadId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/SalesContact/lead/${leadId}`,
         {
           headers: {
             "Content-Type": "application/json",
@@ -126,7 +126,7 @@ const LeadContactEdit: React.FC<contactProps> = ({ data, leadId, cusId }) => {
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:5104/api/SalesContact/${id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/SalesContact/${id}`,
         {
           headers: {
             "Content-Type": "application/json",

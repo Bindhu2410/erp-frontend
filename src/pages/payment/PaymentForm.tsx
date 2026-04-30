@@ -55,7 +55,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ onClose, onSave }) => {
     // Fetch invoices from API
     const fetchInvoices = async () => {
       try {
-        const res = await fetch("http://localhost:5104/api/Invoice");
+        const res = await fetch("${process.env.REACT_APP_API_BASE_URL}/Invoice");
         if (!res.ok) throw new Error("Failed to fetch invoices");
         const data = await res.json();
         setInvoices(data);
@@ -121,7 +121,7 @@ const PaymentForm: React.FC<PaymentFormProps> = ({ onClose, onSave }) => {
         CardNumber:
           payment.PaymentMethod === "Credit Card" ? cardNumber : undefined,
       };
-      const response = await fetch("http://localhost:5104/api/Payments", {
+      const response = await fetch("${process.env.REACT_APP_API_BASE_URL}/Payments", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

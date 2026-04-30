@@ -71,7 +71,7 @@ const LeadForm: React.FC<LeadFormProps> = ({
         status: currentFormData.status || cleanedFormData.status,
       };
       const isEdit = Boolean(localId);
-      const endpoint = `http://localhost:5104/api/SalesLead${
+      const endpoint = `${process.env.REACT_APP_API_BASE_URL}/SalesLead${
         isEdit ? `/${localId}` : ""
       }`;
       const method = isEdit ? "PUT" : "POST";

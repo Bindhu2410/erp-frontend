@@ -47,7 +47,7 @@ const ProductMaster = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true)
-        const response = await fetch('http://localhost:5104/api/Product')
+        const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Product')
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
@@ -113,7 +113,7 @@ const ProductMaster = () => {
 
   const fetchProducts = async () => {
     try {
-      const apiResponse = await fetch('http://localhost:5104/api/Product')
+      const apiResponse = await fetch('${process.env.REACT_APP_API_BASE_URL}/Product')
       if (apiResponse.ok) {
         const data: Product[] = await apiResponse.json()
         const formattedData: FormattedProduct[] = data.map(product => ({
@@ -145,7 +145,7 @@ const ProductMaster = () => {
       setFormError(null)
 
       if (modalMode === 'create') {
-        const response = await fetch('http://localhost:5104/api/Product', {
+        const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Product', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -163,7 +163,7 @@ const ProductMaster = () => {
         await fetchProducts()
         closeModal()
       } else if (modalMode === 'edit') {
-        const response = await fetch(`http://localhost:5104/api/Product/${formData.id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/${formData.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -262,7 +262,7 @@ const ProductMaster = () => {
           Swal.showLoading()
           
           try {
-            const response = await fetch(`http://localhost:5104/api/Product/${product.id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product/${product.id}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' }
             })

@@ -537,7 +537,7 @@ const ChatPageV2: React.FC = () => {
 
   // Render file message
   const renderFileContent = (msg: ChatMessage) => {
-    const baseUrl = process.env.REACT_APP_API_BASE_URL?.replace(/\/api\/?$/, "") || "http://localhost:5104";
+    const baseUrl = process.env.REACT_APP_API_BASE_URL?.replace(/\/api\/?$/, "") || "process.env.REACT_APP_API_BASE_URL";
     if (msg.messageType === "image") {
       return (
         <img

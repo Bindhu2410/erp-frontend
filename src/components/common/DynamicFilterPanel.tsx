@@ -56,7 +56,7 @@ const DynamicFilterPanel: React.FC<DynamicFilterPanelProps> = ({
       if (field.URL && !apiOptions[field.id]) {
         setIsLoading(prev => ({ ...prev, [field.id]: true }));
         try {
-          const response = await axios.get(`http://localhost:5104/${field.URL}`);
+          const response = await axios.get(`process.env.REACT_APP_API_BASE_URL/${field.URL}`);
           const options = response.data.map((item: any) => ({
             value: item[field.id],
             label: item[field.id]

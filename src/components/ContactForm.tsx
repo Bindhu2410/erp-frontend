@@ -208,8 +208,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
       const isEdit = Boolean(dataToSend.id);
       const url = isEdit
-        ? `http://localhost:5104/api/SalesContact/${dataToSend.id}`
-        : "http://localhost:5104/api/SalesContact";
+        ? `${process.env.REACT_APP_API_BASE_URL}/SalesContact/${dataToSend.id}`
+        : "${process.env.REACT_APP_API_BASE_URL}/SalesContact";
 
       const method = isEdit ? "PUT" : "POST";
 

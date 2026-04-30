@@ -52,7 +52,7 @@ export default function CommentSystem({
 
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/InternalDiscussion/stage/${stage}/${stageItemId}`,
+        `${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion/stage/${stage}/${stageItemId}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -325,7 +325,7 @@ export default function CommentSystem({
 
     try {
       const response = await axios.post(
-        "http://localhost:5104/api/InternalDiscussion",
+        "${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion",
         {
           userCreated: "1",
           userUpdated: "1",
@@ -432,7 +432,7 @@ export default function CommentSystem({
 
     try {
       const response = await axios.delete(
-        `http://localhost:5104/api/InternalDiscussion/${commentId}`
+        `${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion/${commentId}`
       );
 
       // if (response.data.statusCode !== 200) {
@@ -472,7 +472,7 @@ export default function CommentSystem({
     try {
       // Send reply to the backend
       const response = await axios.post(
-        "http://localhost:5104/api/InternalDiscussion",
+        "${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion",
         {
           comment: replyContent,
           stage: stage,

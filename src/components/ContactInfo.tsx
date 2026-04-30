@@ -104,7 +104,7 @@ const ContactInfo: React.FC<ContactInfoProps> = ({
 
     try {
       const response = await fetch(
-        `http://localhost:5104/api/SalesContact/${id}`,
+        `${process.env.REACT_APP_API_BASE_URL}/SalesContact/${id}`,
         {
           method: "DELETE",
         }

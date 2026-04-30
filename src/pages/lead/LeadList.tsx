@@ -125,16 +125,16 @@ const LeadList: React.FC = () => {
   ): Promise<string[]> => {
     try {
       const [tasks, calls, meetings, events] = await Promise.allSettled([
-        fetch(`http://localhost:5104/api/SalesActivityTask`).then((r) =>
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask`).then((r) =>
           r.json(),
         ),
-        fetch(`http://localhost:5104/api/SalesActivityCall`).then((r) =>
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall`).then((r) =>
           r.json(),
         ),
-        fetch(`http://localhost:5104/api/SalesActivityMeeting`).then((r) =>
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`).then((r) =>
           r.json(),
         ),
-        fetch(`http://localhost:5104/api/SalesActivityEvent`).then((r) =>
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityEvent`).then((r) =>
           r.json(),
         ),
       ]);
@@ -173,7 +173,7 @@ const LeadList: React.FC = () => {
   // Helper: get team member user IDs for Area Manager
   const getTeamMemberUserIds = async (userId: number): Promise<number[]> => {
     try {
-      const res = await fetch(`http://localhost:5104/api/UmTeamHierarchy`);
+      const res = await fetch(`${process.env.REACT_APP_API_BASE_URL}/UmTeamHierarchy`);
       const data = await res.json();
       const hierarchy: any[] = data?.data || data || [];
       const addRecursive = (parentId: number, ids: Set<number>) => {

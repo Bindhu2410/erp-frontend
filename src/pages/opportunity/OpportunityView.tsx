@@ -297,7 +297,7 @@ const OpportunityView: React.FC = () => {
     if (!id) return;
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesOpportunity/with-items/by-id/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesOpportunity/with-items/by-id/${id}`
       );
       const item = response.data?.quotation;
       if (item) {
@@ -340,7 +340,7 @@ const OpportunityView: React.FC = () => {
         return;
       }
       const response = await axios.delete(
-        `http://localhost:5104/api/SalesOpportunity/${data.opportunityId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesOpportunity/${data.opportunityId}`
       );
       if (response) {
         navigate(-1);
@@ -523,7 +523,7 @@ const OpportunityView: React.FC = () => {
       const fetchOpportunity = async () => {
         try {
           const response = await axios.get(
-            `http://localhost:5104/api/SalesOpportunity/with-items/by-id/${id}`
+            `${process.env.REACT_APP_API_BASE_URL}/SalesOpportunity/with-items/by-id/${id}`
           );
           const rawData = response.data;
 
@@ -687,7 +687,7 @@ const OpportunityView: React.FC = () => {
         })) : [];
         const payload = { Opportunity, Items };
         const response = await fetch(
-          `http://localhost:5104/api/SalesOpportunity/with-items/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}/SalesOpportunity/with-items/${id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },

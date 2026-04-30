@@ -5,7 +5,7 @@ import {
   IWarehouseItem
 } from '../interfaces/warehouse.types';
 
-const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || 'http://localhost:5104/api').replace(/\/+$/, '');
+const API_BASE_URL = (process.env.REACT_APP_API_BASE_URL || '${process.env.REACT_APP_API_BASE_URL}').replace(/\/+$/, '');
 
 export interface IWarehouseService {
   createWarehouse(warehouseData: any): Promise<any>;

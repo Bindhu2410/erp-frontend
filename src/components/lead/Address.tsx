@@ -192,7 +192,7 @@ const LeadAddressEdit: React.FC<addressProps> = ({
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://localhost:5104/api/SalesAddress/lead/${leadId}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesAddress/lead/${leadId}`
       );
 
       console.log(response.data, "api response");
@@ -313,7 +313,7 @@ const LeadAddressEdit: React.FC<addressProps> = ({
     setLoading(true);
     try {
       const response = await axios.delete(
-        `http://localhost:5104/api/SalesAddress/${id}`
+        `${process.env.REACT_APP_API_BASE_URL}/SalesAddress/${id}`
       );
       setISModelOpen(false);
 

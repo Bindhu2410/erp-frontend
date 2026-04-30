@@ -196,8 +196,8 @@ const TaskForm: React.FC<TaskFormProps> = ({
 
     try {
       const url = id
-        ? `http://localhost:5104/api/SalesActivityTask/${id}`
-        : "http://localhost:5104/api/SalesActivityTask";
+        ? `${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask/${id}`
+        : "${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask";
 
       const apiData = {
         ...(id ? { id: Number(id) } : {}),
@@ -293,7 +293,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:5104/api/SalesActivityTask/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask/${id}`,
         );
         if (!response.ok) throw new Error("Failed to fetch task");
 

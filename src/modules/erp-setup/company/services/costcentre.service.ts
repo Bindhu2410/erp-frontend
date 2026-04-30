@@ -4,7 +4,7 @@ import {
 } from "../interfaces/costcentre.types";
 
 const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:5104/api";
+  process.env.REACT_APP_API_BASE_URL || "${process.env.REACT_APP_API_BASE_URL}";
 
 // Ensure URL ends with a slash for consistent concatenation
 const getBaseUrl = () =>

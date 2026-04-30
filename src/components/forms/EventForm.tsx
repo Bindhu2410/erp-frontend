@@ -270,8 +270,8 @@ const EventForm: React.FC<EventFormProps> = ({
     setIsLoading(true);
     try {
       const url = id
-        ? `http://localhost:5104/api/SalesActivityEvent/${id}`
-        : "http://localhost:5104/api/SalesActivityEvent";
+        ? `${process.env.REACT_APP_API_BASE_URL}/SalesActivityEvent/${id}`
+        : "${process.env.REACT_APP_API_BASE_URL}/SalesActivityEvent";
 
       const { LeadID, startTime: _st, endTime: _et, ...rest } = eventData;
       const resolvedStartTime = convertTo24Hour(
@@ -398,7 +398,7 @@ const EventForm: React.FC<EventFormProps> = ({
       setIsLoading(true);
       try {
         const response = await fetch(
-          `http://localhost:5104/api/SalesActivityEvent/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityEvent/${id}`,
         );
         if (!response.ok) throw new Error("Failed to fetch event");
 

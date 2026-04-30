@@ -186,7 +186,7 @@ const QuotationProducts: React.FC<SalesProductsProps> = ({
     setIsLoadingProducts(true);
     try {
       const response = await axios.get(
-        "http://localhost:5104/api/ProductDropdown/product-list"
+        "${process.env.REACT_APP_API_BASE_URL}/ProductDropdown/product-list"
       );
       setProductOptions(response.data);
     } catch (error) {
