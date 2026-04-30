@@ -48,7 +48,7 @@ const MakeMaster: React.FC = () => {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Make');
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Make`);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -128,7 +128,7 @@ const MakeMaster: React.FC = () => {
 
       let response;
       if (modalMode === 'create') {
-        response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Make', {
+        response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Make`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)

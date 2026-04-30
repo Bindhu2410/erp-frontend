@@ -571,7 +571,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
         delete (followUpPayload as any).id;
 
         const createRes = await fetch(
-          "${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting",
+          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -590,7 +590,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
         // Normal Create or Update
         const url = id
           ? `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/${id}`
-          : "${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting";
+          : `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`;
 
         const apiData = { ...getApiData(false), title: meetingData.meetingType };
         if (id) {
@@ -734,7 +734,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
             meetingDate: newMeetingDate,
           });
           delete (newPayload as any).id;
-          const createRes = await fetch("${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting", {
+          const createRes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPayload),

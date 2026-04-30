@@ -269,7 +269,7 @@ const handleAddExpense = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Storage/upload/Claims', {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Storage/upload/Claims`, {
           method: 'POST',
           body: formData,
         });
@@ -342,7 +342,7 @@ const handleAddExpense = () => {
 
       console.log("Payload to save:", JSON.stringify(payload, null, 2));
 
-      const response = await fetch("${process.env.REACT_APP_API_BASE_URL}/Claims", {
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Claims`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

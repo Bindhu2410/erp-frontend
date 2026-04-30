@@ -47,7 +47,7 @@ const ProductMaster = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true)
-        const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Product')
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product`)
         
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
@@ -113,7 +113,7 @@ const ProductMaster = () => {
 
   const fetchProducts = async () => {
     try {
-      const apiResponse = await fetch('${process.env.REACT_APP_API_BASE_URL}/Product')
+      const apiResponse = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product`)
       if (apiResponse.ok) {
         const data: Product[] = await apiResponse.json()
         const formattedData: FormattedProduct[] = data.map(product => ({
@@ -145,7 +145,7 @@ const ProductMaster = () => {
       setFormError(null)
 
       if (modalMode === 'create') {
-        const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/Product', {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Product`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

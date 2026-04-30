@@ -67,7 +67,7 @@ const TermsConditions = () => {
   const fetchTermsConditions = async () => {
     try {
       setLoading(true)
-      const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/TermsConditions')
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -167,7 +167,7 @@ const TermsConditions = () => {
       }))
 
       if (modalMode === 'create') {
-        const response = await fetch('${process.env.REACT_APP_API_BASE_URL}/TermsConditions', {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

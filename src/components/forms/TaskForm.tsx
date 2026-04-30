@@ -197,7 +197,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
     try {
       const url = id
         ? `${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask/${id}`
-        : "${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask";
+        : `${process.env.REACT_APP_API_BASE_URL}/SalesActivityTask`;
 
       const apiData = {
         ...(id ? { id: Number(id) } : {}),

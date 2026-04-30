@@ -27,7 +27,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
-const API_BASE_URL = "${process.env.REACT_APP_API_BASE_URL}";
+const API_BASE_URL = `${process.env.REACT_APP_API_BASE_URL}`;
 
 const INDIAN_STATES = [
   "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh",

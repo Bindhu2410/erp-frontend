@@ -484,7 +484,7 @@ const CallForm: React.FC<CallFormProps> = ({
         delete (followUpPayload as any).id;
 
         const createRes = await fetch(
-          "${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall",
+          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -708,7 +708,7 @@ const CallForm: React.FC<CallFormProps> = ({
             callDate: newCallDate,
           });
           delete (newPayload as any).id;
-          const createRes = await fetch("${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall", {
+          const createRes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityCall`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPayload),
