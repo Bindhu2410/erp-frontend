@@ -208,7 +208,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
     setIsSearchingPincode(true);
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/GeographicalDivision/hierarchy/pincode/${pincode}`
+        `${process.env.REACT_APP_API_BASE_URL}/api/GeographicalDivision/hierarchy/pincode/${pincode}`
       );
       const hierarchyData: HierarchyData[] = response.data;
 
