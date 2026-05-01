@@ -76,7 +76,7 @@ export const DeliveryManagement: React.FC<DeliveryManagementProps> = ({
       if (!purchaseOrderId) return;
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_BASE_URL}/Delivery/by-purchaseorder/${purchaseOrderId}`
+          `${process.env.REACT_APP_API_BASE_URL}Delivery/by-purchaseorder/${purchaseOrderId}`
         );
         if (!response.ok) {
           // If status is 404, do not show error or toast, just treat as no deliveries

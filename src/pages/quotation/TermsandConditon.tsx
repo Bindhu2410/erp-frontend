@@ -46,7 +46,7 @@ const TermsAndConditions: React.FC<TermsProps> = ({
   // Fetch all templates for the dropdown
   useEffect(() => {
     axios
-      .get("${process.env.REACT_APP_API_BASE_URL}/TermsConditions")
+      .get(`${process.env.REACT_APP_API_BASE_URL}TermsConditions`)
       .then((res) => {
         const templates = Array.isArray(res.data) ? res.data : [];
         setAllTemplates(templates);
@@ -61,7 +61,7 @@ const TermsAndConditions: React.FC<TermsProps> = ({
           // New mode: auto-select first template
           const first = templates[0];
           axios
-            .get(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions/${first.id}`)
+            .get(`${process.env.REACT_APP_API_BASE_URL}TermsConditions/${first.id}`)
             .then((res) => applyTemplate(res.data))
             .catch(() => applyTemplate(first));
         }
@@ -101,7 +101,7 @@ const TermsAndConditions: React.FC<TermsProps> = ({
     }
     // Fetch full template details by id
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions/${option.value.id}`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}TermsConditions/${option.value.id}`)
       .then((res) => applyTemplate(res.data))
       .catch(() => applyTemplate(option.value));
   };

@@ -83,7 +83,7 @@ const InvoiceForm: React.FC<InvoiceFormProps> = ({
       };
 
       const isEdit = Boolean(id);
-      const endpoint = `${process.env.REACT_APP_API_BASE_URL}/Invoice${
+      const endpoint = `${process.env.REACT_APP_API_BASE_URL}Invoice${
         isEdit ? `/${id}` : ""
       }`;
       const method = isEdit ? "PUT" : "POST";

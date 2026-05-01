@@ -139,7 +139,7 @@ const InvoiceDetails: React.FC<InvoiceDetailsProps> = ({ id }) => {
 
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_BASE_URL}/Invoice/${invoiceId}`
+          `${process.env.REACT_APP_API_BASE_URL}Invoice/${invoiceId}`
         );
         if (!response.ok) {
           throw new Error("Failed to fetch invoice data");

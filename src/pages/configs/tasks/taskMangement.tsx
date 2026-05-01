@@ -247,7 +247,7 @@ const TaskManagement: React.FC<{ stage?: string }> = ({ stage }) => {
           return { id, data: res.data };
         } catch (err) {
           try {
-            const resp = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Claims/${id}`);
+            const resp = await fetch(`${process.env.REACT_APP_API_BASE_URL}Claims/${id}`);
             if (resp.ok) return { id, data: await resp.json() };
           } catch (e) {
             /* ignore */
@@ -458,7 +458,7 @@ const TaskManagement: React.FC<{ stage?: string }> = ({ stage }) => {
       claim = res.data;
     } catch (err) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Claims/${stageItemId}`);
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}Claims/${stageItemId}`);
         if (response.ok) claim = await response.json();
       } catch (e) {
         console.error("Failed to fetch claim for print preview:", e);
@@ -629,7 +629,7 @@ const TaskManagement: React.FC<{ stage?: string }> = ({ stage }) => {
         return res.data;
       } catch (err) {
         try {
-          const resp = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Claims/${sid}`);
+          const resp = await fetch(`${process.env.REACT_APP_API_BASE_URL}Claims/${sid}`);
           if (resp.ok) return await resp.json();
         } catch (e) {
           /* ignore */
