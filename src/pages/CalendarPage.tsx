@@ -390,7 +390,7 @@ const CalendarPage: React.FC = () => {
     const fetchUsers = async () => {
       try {
         const res = await fetch(
-          "${process.env.REACT_APP_API_BASE_URL}PresenterDropdown/presenterDropdown",
+          `${process.env.REACT_APP_API_BASE_URL}PresenterDropdown/presenterDropdown`,
         );
         const data = await res.json();
         setUsers(data);
@@ -520,10 +520,10 @@ const CalendarPage: React.FC = () => {
 
       const [eventsRes, meetingsRes, callsRes, tasksRes] =
         await Promise.allSettled([
-          fetch("${process.env.REACT_APP_API_BASE_URL}SalesActivityEvent"),
-          fetch("${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting"),
-          fetch("${process.env.REACT_APP_API_BASE_URL}SalesActivityCall"),
-          fetch("${process.env.REACT_APP_API_BASE_URL}SalesActivityTask"),
+          fetch(`${process.env.REACT_APP_API_BASE_URL}SalesActivityEvent`),
+          fetch(`${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting`),
+          fetch(`${process.env.REACT_APP_API_BASE_URL}SalesActivityCall`),
+          fetch(`${process.env.REACT_APP_API_BASE_URL}SalesActivityTask`),
         ]);
 
       // Build allowed user IDs based on selection

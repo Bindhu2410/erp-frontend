@@ -73,7 +73,7 @@ const Attachments: React.FC<AttachmentData> = ({
       } else {
         // Create new document
         response = await axios.post(
-          "${process.env.REACT_APP_API_BASE_URL}SalesDocument",
+          `${process.env.REACT_APP_API_BASE_URL}SalesDocument`,
           {
             ...contactFormData,
             stage: stage,

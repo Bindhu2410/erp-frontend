@@ -52,7 +52,7 @@ export default function CommentSystem({
 
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion/stage/${stage}/${stageItemId}`,
+        `${process.env.REACT_APP_API_BASE_URL}InternalDiscussion/stage/${stage}/${stageItemId}`,
         {
           headers: {
             Authorization: `Bearer ${accessToken}`,
@@ -174,7 +174,7 @@ export default function CommentSystem({
 
         // Make the API call to mark the comment as seen
         const response = await axios.post(
-          "${process.env.REACT_APP_API_BASE_URL}/api/sales/update-seen-comment",
+          `${process.env.REACT_APP_API_BASE_URL}sales/update-seen-comment`,
           {
             commentId: commentId,
             userName: currentUser.userName,
@@ -325,7 +325,7 @@ export default function CommentSystem({
 
     try {
       const response = await axios.post(
-        "${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion",
+        `${process.env.REACT_APP_API_BASE_URL}InternalDiscussion`,
         {
           userCreated: "1",
           userUpdated: "1",
@@ -381,7 +381,7 @@ export default function CommentSystem({
       };
 
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/api/sales/update-sales-thread-comment`,
+        `${process.env.REACT_APP_API_BASE_URL}sales/update-sales-thread-comment`,
         payload,
         {
           headers: {
@@ -432,7 +432,7 @@ export default function CommentSystem({
 
     try {
       const response = await axios.delete(
-        `${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion/${commentId}`
+        `${process.env.REACT_APP_API_BASE_URL}InternalDiscussion/${commentId}`
       );
 
       // if (response.data.statusCode !== 200) {
@@ -472,7 +472,7 @@ export default function CommentSystem({
     try {
       // Send reply to the backend
       const response = await axios.post(
-        "${process.env.REACT_APP_API_BASE_URL}/InternalDiscussion",
+        `${process.env.REACT_APP_API_BASE_URL}InternalDiscussion`,
         {
           comment: replyContent,
           stage: stage,

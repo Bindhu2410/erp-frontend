@@ -70,12 +70,12 @@ const AddressForm: React.FC<AddressFormProps> = ({
     const fetchInitialData = async () => {
       const [states, territories, districts, cities, areas, pincodes] =
         await Promise.all([
-          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesState"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesTerritory"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesDistrict"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesCity"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesArea"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesPincode"),
+          axios.get(`${process.env.REACT_APP_API_BASE_URL}SalesState`),
+          axios.get(`${process.env.REACT_APP_API_BASE_URL}SalesTerritory`),
+          axios.get(`${process.env.REACT_APP_API_BASE_URL}SalesDistrict`),
+          axios.get(`${process.env.REACT_APP_API_BASE_URL}SalesCity`),
+          axios.get(`${process.env.REACT_APP_API_BASE_URL}SalesArea`),
+          axios.get(`${process.env.REACT_APP_API_BASE_URL}SalesPincode`),
         ]);
       setOptions((prev) => ({
         ...prev,
