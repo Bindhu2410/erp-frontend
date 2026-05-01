@@ -174,7 +174,7 @@ export default function CommentSystem({
 
         // Make the API call to mark the comment as seen
         const response = await axios.post(
-          "http://localhost:4321/api/sales/update-seen-comment",
+          "${process.env.REACT_APP_API_BASE_URL}/api/sales/update-seen-comment",
           {
             commentId: commentId,
             userName: currentUser.userName,
@@ -381,7 +381,7 @@ export default function CommentSystem({
       };
 
       const response = await axios.post(
-        "http://localhost:4321/api/sales/update-sales-thread-comment",
+        `${process.env.REACT_APP_API_BASE_URL}/api/sales/update-sales-thread-comment`,
         payload,
         {
           headers: {

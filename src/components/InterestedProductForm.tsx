@@ -167,7 +167,7 @@ const InterestedProductForm: React.FC<InterestedProductFormProps> = ({
     }
     try {
       setIsLoading(true);
-      await axios.delete(`http://localhost:3000/api/SalesItems/${productId}`);
+      await axios.delete(`${process.env.REACT_APP_API_BASE_URL}/api/SalesItems/${productId}`);
       await fetchSalesItems();
       toast.success("Product removed successfully");
     } catch (error) {
