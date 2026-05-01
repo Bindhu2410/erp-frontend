@@ -37,7 +37,7 @@ const Attachments: React.FC<AttachmentData> = ({
       if (documentId) {
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_API_BASE_URL}/SalesDocument/${documentId}`
+            `${process.env.REACT_APP_API_BASE_URL}SalesDocument/${documentId}`
           );
           setContactFormData(response.data);
         } catch (error) {
@@ -58,7 +58,7 @@ const Attachments: React.FC<AttachmentData> = ({
       if (documentId) {
         // Update existing document
         response = await axios.put(
-          `${process.env.REACT_APP_API_BASE_URL}/SalesDocument/${documentId}`,
+          `${process.env.REACT_APP_API_BASE_URL}SalesDocument/${documentId}`,
           {
             ...contactFormData,
             id: documentId,
@@ -73,7 +73,7 @@ const Attachments: React.FC<AttachmentData> = ({
       } else {
         // Create new document
         response = await axios.post(
-          "${process.env.REACT_APP_API_BASE_URL}/SalesDocument",
+          "${process.env.REACT_APP_API_BASE_URL}SalesDocument",
           {
             ...contactFormData,
             stage: stage,

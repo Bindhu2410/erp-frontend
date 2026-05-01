@@ -156,7 +156,7 @@ const OpportunityList: React.FC = () => {
       };
 
       const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}/SalesOpportunity/grid`,
+        `${process.env.REACT_APP_API_BASE_URL}SalesOpportunity/grid`,
         {
           method: "POST",
           headers: {

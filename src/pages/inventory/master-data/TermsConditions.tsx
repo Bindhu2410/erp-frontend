@@ -67,7 +67,7 @@ const TermsConditions = () => {
   const fetchTermsConditions = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions`)
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}TermsConditions`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -167,7 +167,7 @@ const TermsConditions = () => {
       }))
 
       if (modalMode === 'create') {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions`, {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}TermsConditions`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -183,7 +183,7 @@ const TermsConditions = () => {
         }
         toast.success('✅ Terms and Conditions created successfully!')
       } else if (modalMode === 'edit') {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions/${formData.id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}TermsConditions/${formData.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -248,7 +248,7 @@ const TermsConditions = () => {
 
   const handleViewTermsConditions = async (item: FormattedTermsConditions) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions/${item.id}`)
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}TermsConditions/${item.id}`)
       if (response.ok) {
         const data: TermsConditions = await response.json()
         setFormData({
@@ -272,7 +272,7 @@ const TermsConditions = () => {
 
   const handleEditTermsConditions = async (item: FormattedTermsConditions) => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions/${item.id}`)
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}TermsConditions/${item.id}`)
       if (response.ok) {
         const data: TermsConditions = await response.json()
         setFormData({
@@ -318,7 +318,7 @@ const TermsConditions = () => {
       didOpen: async () => {
         Swal.showLoading()
         try {
-          const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/TermsConditions/${item.id}`, {
+          const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}TermsConditions/${item.id}`, {
             method: 'DELETE',
             headers: { 'Content-Type': 'application/json' }
           })

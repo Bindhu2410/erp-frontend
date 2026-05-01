@@ -47,7 +47,7 @@ const QuotationTitle = () => {
   const fetchQuotationTitles = async () => {
     try {
       setLoading(true)
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/QuotationTitle`)
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}QuotationTitle`)
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
@@ -105,7 +105,7 @@ const QuotationTitle = () => {
       setFormError(null)
 
       if (modalMode === 'create') {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/QuotationTitle`, {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}QuotationTitle`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -122,7 +122,7 @@ const QuotationTitle = () => {
         await fetchQuotationTitles()
         closeModal()
       } else if (modalMode === 'edit') {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/QuotationTitle/${formData.id}`, {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}QuotationTitle/${formData.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -190,7 +190,7 @@ const QuotationTitle = () => {
 
         if (result.isConfirmed) {
           try {
-            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/QuotationTitle/${row.id}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}QuotationTitle/${row.id}`, {
               method: 'DELETE',
               headers: { 'Content-Type': 'application/json' }
             })

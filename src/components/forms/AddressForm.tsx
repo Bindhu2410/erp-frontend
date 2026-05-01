@@ -70,12 +70,12 @@ const AddressForm: React.FC<AddressFormProps> = ({
     const fetchInitialData = async () => {
       const [states, territories, districts, cities, areas, pincodes] =
         await Promise.all([
-          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesState"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesTerritory"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesDistrict"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesCity"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesArea"),
-          axios.get("${process.env.REACT_APP_API_BASE_URL}/SalesPincode"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesState"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesTerritory"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesDistrict"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesCity"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesArea"),
+          axios.get("${process.env.REACT_APP_API_BASE_URL}SalesPincode"),
         ]);
       setOptions((prev) => ({
         ...prev,
@@ -113,26 +113,26 @@ const AddressForm: React.FC<AddressFormProps> = ({
       switch (field) {
         case "state":
           const territories = await axios.get(
-            `${process.env.REACT_APP_API_BASE_URL}/SalesTerritory/state/${value}`
+            `${process.env.REACT_APP_API_BASE_URL}SalesTerritory/state/${value}`
           );
           setOptions((prev) => ({ ...prev, territories: territories.data }));
           break;
         case "district":
           const cities = await axios.get(
-            `${process.env.REACT_APP_API_BASE_URL}/SalesCity/district/${value}`
+            `${process.env.REACT_APP_API_BASE_URL}SalesCity/district/${value}`
           );
           setOptions((prev) => ({ ...prev, cities: cities.data }));
           break;
         case "city":
           const areas = await axios.get(
-            `${process.env.REACT_APP_API_BASE_URL}/SalesArea/city/${value}`
+            `${process.env.REACT_APP_API_BASE_URL}SalesArea/city/${value}`
           );
           setOptions((prev) => ({ ...prev, areas: areas.data }));
           break;
         case "pincode":
           if (value.length >= 3) {
             const pincodes = await axios.get(
-              `${process.env.REACT_APP_API_BASE_URL}/SalesPincode`
+              `${process.env.REACT_APP_API_BASE_URL}SalesPincode`
             );
             const filtered = pincodes.data.filter((p: any) =>
               p.code.startsWith(value)
@@ -220,7 +220,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
 
       const response = await axios({
         method: editId ? "put" : "post",
-        url: `${process.env.REACT_APP_API_BASE_URL}/SalesAddress${
+        url: `${process.env.REACT_APP_API_BASE_URL}SalesAddress${
           editId ? `/${editId}` : ""
         }`,
         data: payload,
@@ -245,7 +245,7 @@ const AddressForm: React.FC<AddressFormProps> = ({
   const fetchaddressById = async (id: string) => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_API_BASE_URL}/SalesAddress/${editId}`
+        `${process.env.REACT_APP_API_BASE_URL}SalesAddress/${editId}`
       );
 
       console.log("Fetched address data:", response.data);

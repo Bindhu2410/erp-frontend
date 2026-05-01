@@ -46,7 +46,7 @@ const ClaimsPage: React.FC = () => {
     
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}/Claims`,
+        `${process.env.REACT_APP_API_BASE_URL}Claims`,
         {
           method: "GET",
           headers: {

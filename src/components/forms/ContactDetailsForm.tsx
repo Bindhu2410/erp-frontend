@@ -77,7 +77,7 @@ const LeadContactInfo: React.FC<ContactFormData> = ({
 
         try {
           const response = await axios.put(
-            `${process.env.REACT_APP_API_BASE_URL}/SalesContact/${editData.id}`,
+            `${process.env.REACT_APP_API_BASE_URL}SalesContact/${editData.id}`,
             {
               id: editData.id,
               contactName: contactFormData.contactName,
@@ -132,7 +132,7 @@ const LeadContactInfo: React.FC<ContactFormData> = ({
         // New entry
         try {
           const response = await axios.post(
-            "${process.env.REACT_APP_API_BASE_URL}/SalesContact",
+            "${process.env.REACT_APP_API_BASE_URL}SalesContact",
             {
               contactName: contactFormData.contactName,
               contactMobileNo: contactFormData.mobileNo,

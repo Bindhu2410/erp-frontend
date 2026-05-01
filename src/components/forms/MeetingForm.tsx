@@ -305,7 +305,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
 
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting/${id}`,
         );
         if (!response.ok) throw new Error("Failed to fetch meeting");
         const data = await response.json();
@@ -555,7 +555,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
         };
 
         const updateRes = await fetch(
-          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/${id}`,
+          `${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting/${id}`,
           {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
@@ -571,7 +571,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
         delete (followUpPayload as any).id;
 
         const createRes = await fetch(
-          `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`,
+          `${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -589,8 +589,8 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
       } else {
         // Normal Create or Update
         const url = id
-          ? `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/${id}`
-          : `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`;
+          ? `${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting/${id}`
+          : `${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting`;
 
         const apiData = { ...getApiData(false), title: meetingData.meetingType };
         if (id) {
@@ -720,7 +720,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
               id: Number(id),
             };
             await fetch(
-              `${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting/${id}`,
+              `${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting/${id}`,
               {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
@@ -734,7 +734,7 @@ const MeetingForm: React.FC<MeetingFormProps> = ({
             meetingDate: newMeetingDate,
           });
           delete (newPayload as any).id;
-          const createRes = await fetch(`${process.env.REACT_APP_API_BASE_URL}/SalesActivityMeeting`, {
+          const createRes = await fetch(`${process.env.REACT_APP_API_BASE_URL}SalesActivityMeeting`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newPayload),

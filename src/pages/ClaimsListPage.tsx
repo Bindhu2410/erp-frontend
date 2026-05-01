@@ -29,7 +29,7 @@ const ClaimsListPage: React.FC = () => {
 
   const fetchClaims = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/Claims`);
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}Claims`);
       if (response.ok) {
         const data = await response.json();
         setClaims(data);

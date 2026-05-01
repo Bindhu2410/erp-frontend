@@ -146,7 +146,7 @@ const ChatPage: React.FC = () => {
         GroupName: selectedContact.name,
       };
 
-      const response = await fetch("${process.env.REACT_APP_API_BASE_URL}/Chat/send", {
+      const response = await fetch("${process.env.REACT_APP_API_BASE_URL}Chat/send", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
