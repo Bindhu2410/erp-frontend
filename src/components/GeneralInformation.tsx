@@ -268,7 +268,7 @@ const GeneralInformation = forwardRef<
       setLoadingFields((prev) => ({ ...prev, SalesLead: true }));
       try {
         const response = await axios.get<SalesLeadData[]>(
-          `${process.env.REACT_APP_API_BASE_URL}/api/SalesLead`,
+          `${process.env.REACT_APP_API_BASE_URL}SalesLead`,
         );
         setApiData(response.data);
       } catch (err) {
@@ -285,7 +285,7 @@ const GeneralInformation = forwardRef<
       setLoadingFields((prev) => ({ ...prev, SalesOpportunity: true }));
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/api/SalesOpportunity/with-items`,
+          `${process.env.REACT_APP_API_BASE_URL}SalesOpportunity/with-items`,
         );
 
         // Transform the API response to match our interface
@@ -349,7 +349,7 @@ const GeneralInformation = forwardRef<
             } else if (field.URL === "api/SalesOpportunity/with-items") {
               try {
                 const response = await axios.get(
-                  `${process.env.REACT_APP_API_BASE_URL}/api/SalesOpportunity/with-items`,
+                  `${process.env.REACT_APP_API_BASE_URL}SalesOpportunity/with-items`,
                 );
 
                 // Transform the API response to extract opportunity data
@@ -385,7 +385,7 @@ const GeneralInformation = forwardRef<
             } else if (field.URL === "SalesLocation/search") {
               try {
                 const response = await axios.post(
-                  `${process.env.REACT_APP_API_BASE_URL}/api/SalesLocation/search`,
+                  `${process.env.REACT_APP_API_BASE_URL}SalesLocation/search`,
                 );
                 const locationData: LocationData[] = response.data;
                 setLocationOptions(locationData);
@@ -794,7 +794,7 @@ const GeneralInformation = forwardRef<
       setIsSearchingPincode(true);
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_BASE_URL}/api/GeographicalDivision/hierarchy/pincode/${pincode}`,
+          `${process.env.REACT_APP_API_BASE_URL}GeographicalDivision/hierarchy/pincode/${pincode}`,
         );
         const hierarchyData: HierarchyData[] = response.data;
         // Mark that search was attempted (for area validation)
@@ -1778,7 +1778,7 @@ const GeneralInformation = forwardRef<
             try {
               setLoadingFields((prev) => ({ ...prev, [fieldId]: true }));
               const response = await axios.get(
-                `${process.env.REACT_APP_API_BASE_URL}/api/SalesCustomer`,
+                `${process.env.REACT_APP_API_BASE_URL}SalesCustomer`,
               );
               setCustomApiData((prev) => ({
                 ...prev,
@@ -1805,7 +1805,7 @@ const GeneralInformation = forwardRef<
       const fetchPresenters = async () => {
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_API_BASE_URL}/api/PresenterDropdown/presenterDropdown`,
+            `${process.env.REACT_APP_API_BASE_URL}PresenterDropdown/presenterDropdown`,
           );
           setPresenterOptions(response.data);
         } catch (err) {
