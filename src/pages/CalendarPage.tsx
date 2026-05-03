@@ -464,7 +464,7 @@ const CalendarPage: React.FC = () => {
         const res = await api.post("SalesLead/grid", {
           searchText: "",
           pageNumber: 1,
-          pageSize: 1000, // ← fetch all
+          pageSize: 10, // ← fetch all
           orderBy: "id",
           orderDirection: "DESC",
           customerNames: [],
