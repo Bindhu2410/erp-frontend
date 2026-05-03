@@ -129,7 +129,7 @@ const TaskForm: React.FC<TaskFormProps> = ({
         const res = await api.post("SalesLead/grid", {
           searchText: "",
           pageNumber: 1,
-          pageSize: 1000,
+          pageSize: 10,
           orderBy: "id",
           orderDirection: "DESC",
           customerNames: [],
