@@ -348,7 +348,7 @@ const EventForm: React.FC<EventFormProps> = ({
         const res = await api.post("SalesLead/grid", {
           searchText: "",
           pageNumber: 1,
-          pageSize: 1000,
+          pageSize: 10,
           orderBy: "id",
           orderDirection: "DESC",
           customerNames: [],
